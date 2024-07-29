@@ -4,6 +4,7 @@ import {
   appleAuth,
   appleAuthAndroid,
 } from "@invertase/react-native-apple-authentication";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { Icon, VStack } from "components/common";
 import { LoginButton } from "components/features/auth";
 import { useTheme } from "contexts/theme";
@@ -41,6 +42,16 @@ const Login: React.FC = () => {
     }
   };
 
+  const googleLogin = async () => {
+    try {
+      const { serverAuthCode } = await GoogleSignin.signIn();
+
+      console.log(serverAuthCode);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <VStack
       fill
@@ -55,7 +66,7 @@ const Login: React.FC = () => {
       </VStack>
       <VStack gap={400}>
         <LoginButton type="apple" onPress={appleLogin} />
-        <LoginButton type="google" />
+        <LoginButton type="google" onPress={googleLogin} />
       </VStack>
     </VStack>
   );

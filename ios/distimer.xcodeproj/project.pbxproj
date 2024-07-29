@@ -22,6 +22,7 @@
 		9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */; };
 		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
 		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
+		FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Bold.ttf"; path = "../assets/fonts/WantedSans-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = distimer.entitlements; path = distimer/distimer.entitlements; sourceTree = "<group>"; };
+		FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				1DD7C7CC9D65E0EE05DC41AD /* PrivacyInfo.xcprivacy */,
+				FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */,
 			);
 			name = distimer;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				09630EFB9A85482C86BB7794 /* WantedSans-ExtraBlack.ttf in Resources */,
 				655E1A6CDA6C4775BA36109E /* WantedSans-ExtraBold.ttf in Resources */,
 				F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */,
+				FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */,
 				6675C8383B954EBBBA4EEAF3 /* WantedSans-Regular.ttf in Resources */,
 				9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */,
 			);

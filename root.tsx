@@ -1,10 +1,12 @@
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { LogBox } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ThemeProvider } from "contexts/theme";
 
+import { ENV } from "./env";
 import { App } from "./src";
 
 LogBox.ignoreLogs([
@@ -15,6 +17,11 @@ LogBox.ignoreLogs([
 ]);
 
 const Root = () => {
+  GoogleSignin.configure({
+    webClientId: ENV.googleClientId,
+    offlineAccess: true,
+  });
+
   return (
     <GestureHandlerRootView>
       <SafeAreaProvider>
