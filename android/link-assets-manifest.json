@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/WantedSans-Black.ttf",
+      "sha1": "4354512ebdf075c753d99f18512176bbdf218dbd"
+    },
+    {
+      "path": "assets/fonts/WantedSans-Bold.ttf",
+      "sha1": "8bb00b9d51c7ec5791f9bf6a045c758d2d527f79"
+    },
+    {
+      "path": "assets/fonts/WantedSans-ExtraBlack.ttf",
+      "sha1": "1cd92944c236b8f858ebb60aef802c1508e9f20d"
+    },
+    {
+      "path": "assets/fonts/WantedSans-ExtraBold.ttf",
+      "sha1": "018919a16f78d1c0c4c5dbb87f5603dd0e1d3a09"
+    },
+    {
+      "path": "assets/fonts/WantedSans-Medium.ttf",
+      "sha1": "d1452298cab004d6235ee2ee5d09659bb9f9d8df"
+    },
+    {
+      "path": "assets/fonts/WantedSans-Regular.ttf",
+      "sha1": "f01c1f74712ee82db8949abd01fb81b5fb68d538"
+    },
+    {
+      "path": "assets/fonts/WantedSans-SemiBold.ttf",
+      "sha1": "8c98fb0aec78286bef0901839182bdb4d9c337e3"
+    }
+  ]
+}
