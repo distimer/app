@@ -30,8 +30,8 @@ interface Colors {
   };
   social: {
     apple: {
-      background: string;
       text: string;
+      background: string;
     };
   };
 }
@@ -61,8 +61,8 @@ const lightColors: Colors = {
   },
   social: {
     apple: {
-      background: "#FFFFFF",
-      text: "#000000",
+      text: "#FFFFFF",
+      background: "#000000",
     },
   },
 };
@@ -91,8 +91,8 @@ const darkColors: Colors = {
   },
   social: {
     apple: {
-      background: "#000000",
-      text: "#FFFFFF",
+      text: "#000000",
+      background: "#FFFFFF",
     },
   },
 };

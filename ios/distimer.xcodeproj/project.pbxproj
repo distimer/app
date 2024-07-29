@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* distimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* distimerTests.m */; };
+		09630EFB9A85482C86BB7794 /* WantedSans-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-distimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-distimer.a */; };
+		113C814698C9401D89EAE9B0 /* WantedSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5B736EFCBCC64C84E8C71A1A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7C7CC9D65E0EE05DC41AD /* PrivacyInfo.xcprivacy */; };
+		655E1A6CDA6C4775BA36109E /* WantedSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */; };
+		6675C8383B954EBBBA4EEAF3 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-distimer-distimerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-distimer-distimerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
-		113C814698C9401D89EAE9B0 /* WantedSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */; };
-		09630EFB9A85482C86BB7794 /* WantedSans-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */; };
-		655E1A6CDA6C4775BA36109E /* WantedSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */; };
-		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
-		6675C8383B954EBBBA4EEAF3 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
 		9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */; };
+		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
+		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = distimer/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = distimer/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = distimer/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBold.ttf"; path = "../assets/fonts/WantedSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-distimer-distimerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer-distimerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD7C7CC9D65E0EE05DC41AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = distimer/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-distimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer.debug.xcconfig"; path = "Target Support Files/Pods-distimer/Pods-distimer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,15 +53,14 @@
 		5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.debug.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-distimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = distimer/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Black.ttf"; path = "../assets/fonts/WantedSans-Black.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.release.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.release.xcconfig"; sourceTree = "<group>"; };
+		966D172683AC434A8798983E /* WantedSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Regular.ttf"; path = "../assets/fonts/WantedSans-Regular.ttf"; sourceTree = "<group>"; };
+		AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Medium.ttf"; path = "../assets/fonts/WantedSans-Medium.ttf"; sourceTree = "<group>"; };
+		B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBlack.ttf"; path = "../assets/fonts/WantedSans-ExtraBlack.ttf"; sourceTree = "<group>"; };
+		B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-SemiBold.ttf"; path = "../assets/fonts/WantedSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Bold.ttf"; path = "../assets/fonts/WantedSans-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */ = {isa = PBXFileReference; name = "WantedSans-Black.ttf"; path = "../assets/fonts/WantedSans-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */ = {isa = PBXFileReference; name = "WantedSans-Bold.ttf"; path = "../assets/fonts/WantedSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */ = {isa = PBXFileReference; name = "WantedSans-ExtraBlack.ttf"; path = "../assets/fonts/WantedSans-ExtraBlack.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "WantedSans-ExtraBold.ttf"; path = "../assets/fonts/WantedSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */ = {isa = PBXFileReference; name = "WantedSans-Medium.ttf"; path = "../assets/fonts/WantedSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		966D172683AC434A8798983E /* WantedSans-Regular.ttf */ = {isa = PBXFileReference; name = "WantedSans-Regular.ttf"; path = "../assets/fonts/WantedSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "WantedSans-SemiBold.ttf"; path = "../assets/fonts/WantedSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,19 +157,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3B4392A12AC88292D35C810B /* Pods-distimer.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		B8076C1EEA14494DBFF44ADD /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */,
 				D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */,
@@ -181,7 +170,17 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-distimer.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -512,11 +511,13 @@
 				DEVELOPMENT_TEAM = 55RQQG4L55;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = distimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "디스타이머";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -539,11 +540,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55RQQG4L55;
 				INFOPLIST_FILE = distimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "디스타이머";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -629,10 +632,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -704,10 +704,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
