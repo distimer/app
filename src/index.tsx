@@ -1,4 +1,5 @@
 import React from "react";
+import BootSplash from "react-native-bootsplash";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import ToastContainer from "react-native-toast-message";
 
@@ -32,6 +33,9 @@ const App = () => {
             background: colors.gray[0],
             text: colors.gray[700],
           },
+        }}
+        onReady={async () => {
+          await BootSplash.hide({ fade: true });
         }}>
         <BottomSheetModalProvider>
           <Navigation />
