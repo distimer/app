@@ -4,14 +4,17 @@ import type {
   ParamListBase,
   TabNavigationState,
 } from "@react-navigation/native";
+import type { PhosphorIconName } from "components/common";
+import type { NavbarItem } from "navigations/navbar";
 import type React from "react";
+
 import { Pressable } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
-import type { IconName } from "components/common";
-import { Icon, Text } from "components/common";
 import { useTheme } from "contexts/theme";
-import type { NavbarItem } from "navigations/navbar";
+
+import { PhosphorIcon, Text } from "components/common";
 
 interface NavbarProps {
   items: NavbarItem[];
@@ -28,17 +31,18 @@ const Navbar: React.FC<NavbarProps> = ({ items, state, navigation }) => {
       renderItem={({ item, index }) => (
         <NavbarButton
           title={items[index].title}
-          icon={
-            `Navbar${item.name}${
-              state.index === index ? "Selected" : ""
-            }Icon` as IconName
-          }
+          icon={items[index].icon}
           selected={state.index === index}
           onPress={() => {
             const event = navigation.emit({
               type: "tabPress",
               target: item.key,
               canPreventDefault: true,
+            });
+
+            ReactNativeHapticFeedback.trigger("impactLight", {
+              enableVibrateFallback: true,
+              ignoreAndroidSystemSettings: false,
             });
 
             if (!(state.index === index) && !event.defaultPrevented) {
@@ -60,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ items, state, navigation }) => {
 
 interface NavbarButtonProps {
   title: string;
-  icon: IconName;
+  icon: PhosphorIconName;
   selected: boolean;
   onPress: () => void;
 }
@@ -85,14 +89,16 @@ const NavbarButton: React.FC<NavbarButtonProps> = ({
           : styles.padding.bottom[300],
         styles.gap.all[50],
         styles.$flex(1),
-      ]}
-    >
-      <Icon name={icon} fill={color} />
+      ]}>
+      <PhosphorIcon
+        name={icon}
+        type={selected ? "fill" : "regular"}
+        color={color}
+      />
       <Text
         type="footnote"
         weight={selected ? "semiBold" : "medium"}
-        color={color}
-      >
+        color={color}>
         {title}
       </Text>
     </Pressable>

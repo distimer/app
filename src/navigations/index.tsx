@@ -1,30 +1,72 @@
+import type { AuthStackParamList } from "./auth";
+import type { MainStackParamList, MainStackProps } from "./main";
 import type { NavigatorScreenParams } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { StackNavigationProp } from "@react-navigation/stack";
 
-import type { AuthStackParamList } from "./auth";
+import React from "react";
+
+import { useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { jwtDecode } from "jwt-decode";
+
+import { useAuth } from "contexts/auth";
+
 import { AuthStack } from "./auth";
-import type { NavbarStackParamList } from "./navbar";
-import { NavbarStack } from "./navbar";
+import { MainStack } from "./main";
 
 type NavigationParamList = {
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
-  NavbarStack: NavigatorScreenParams<NavbarStackParamList>;
+  MainStack: NavigatorScreenParams<MainStackParamList>;
 };
 type NavigationProps = StackNavigationProp<NavigationParamList>;
 const Stack = createNativeStackNavigator<NavigationParamList>();
 const Navigation = () => {
+  const { accessToken } = useAuth();
+
+  const navigation = useNavigation<NavigationProps>();
+
+  const stack = React.useMemo(() => {
+    if (!accessToken) return "AuthStack";
+    const termsAgreed = jwtDecode<{ terms_agreed: boolean }>(
+      accessToken,
+    ).terms_agreed;
+    return termsAgreed ? "MainStack" : "AuthStack";
+  }, [accessToken]);
+  const [currentStack, setCurrentStack] = React.useState(stack);
+
+  React.useEffect(() => {
+    const newStack = navigation.getState()?.routes[0].name;
+    if (newStack) {
+      setCurrentStack(newStack);
+    }
+  }, [navigation]);
+  React.useEffect(() => {
+    if (stack !== currentStack) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: stack }],
+      });
+      setCurrentStack(stack);
+    }
+  }, [stack, currentStack, navigation]);
+
   return (
     <Stack.Navigator
+      initialRouteName={stack}
       screenOptions={{
         headerShown: false,
-      }}
-    >
+      }}>
       <Stack.Screen name="AuthStack" component={AuthStack} />
-      <Stack.Screen name="NavbarStack" component={NavbarStack} />
+      <Stack.Screen name="MainStack" component={MainStack} />
     </Stack.Navigator>
   );
 };
 
-export { Navigation };
+const useMainNavigation = () => {
+  const navigation = useNavigation<MainStackProps>();
+
+  return navigation;
+};
+
+export { Navigation, useMainNavigation };
 export type { NavigationProps, NavigationParamList };

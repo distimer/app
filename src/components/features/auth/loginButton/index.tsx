@@ -1,7 +1,9 @@
+import React from "react";
 import { TouchableOpacity } from "react-native";
 
-import { HStack, Icon, Text } from "components/common";
 import { useTheme } from "contexts/theme";
+
+import { HStack, Icon, Text } from "components/common";
 
 interface LoginButtonProps {
   type: "apple" | "google";
@@ -22,10 +24,9 @@ const LoginButton: React.FC<LoginButtonProps> = ({ type, onPress }) => {
           styles.$background(
             type === "apple"
               ? colors.social.apple.background
-              : colors.solid.white
+              : colors.solid.white,
           ),
-        ]}
-      >
+        ]}>
         <Icon
           name={type === "apple" ? "SocialAppleIcon" : "SocialGoogleIcon"}
           fill={type === "apple" ? colors.social.apple.text : undefined}
@@ -35,8 +36,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({ type, onPress }) => {
           weight="semiBold"
           color={
             type === "apple" ? colors.social.apple.text : colors.solid.black
-          }
-        >
+          }>
           {type === "apple" ? "Apple로 로그인" : "Google 계정으로 로그인"}
         </Text>
       </HStack>

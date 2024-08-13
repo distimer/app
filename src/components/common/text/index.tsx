@@ -1,4 +1,6 @@
 import type { StyleProp, TextStyle } from "react-native";
+
+import React from "react";
 import { Text as RNText } from "react-native";
 
 import { textStyles, weightStyles } from "styles/texts";
@@ -20,7 +22,7 @@ const Text: React.FC<TextProps> = ({
   weight,
   color,
   align,
-  line,
+  line = 1,
   style,
 }) => {
   return (
@@ -33,11 +35,37 @@ const Text: React.FC<TextProps> = ({
         align && { textAlign: align },
         style,
       ]}
-      numberOfLines={line}
-    >
+      numberOfLines={line}>
       {children}
     </RNText>
   );
 };
 
-export { Text };
+interface SkeletonTextProps {
+  type: TextType;
+  weight: WeightType;
+  width?: number;
+  line?: number;
+}
+const SkeletonText: React.FC<SkeletonTextProps> = ({
+  type,
+  weight,
+  width,
+  line = 1,
+}) => {
+  return (
+    <Text
+      type={type}
+      weight={weight}
+      color="red"
+      style={{
+        width: width,
+        backgroundColor: "blue",
+      }}>
+      {"a"}
+      {"\n".repeat(line - 1)}
+    </Text>
+  );
+};
+
+export { Text, SkeletonText };

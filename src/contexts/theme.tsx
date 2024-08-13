@@ -1,10 +1,5 @@
-import React from "react";
-import { Appearance, StyleSheet, View } from "react-native";
 import type { EdgeInsets } from "react-native-safe-area-context";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 import type { Colors } from "styles/colors";
-import { darkColors, lightColors } from "styles/colors";
 import type {
   BorderRadiusStyle,
   BorderRadiusStyleKeys,
@@ -16,6 +11,12 @@ import type {
   PaddingStyleKeys,
   PaddingStyles,
 } from "styles/styles";
+
+import React from "react";
+import { Appearance, StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { darkColors, lightColors } from "styles/colors";
 import {
   borderRadiusTypes,
   gapTypes,
@@ -86,7 +87,7 @@ type Styles = {
   $background: (color: string) => { backgroundColor: string };
   $border: (
     width: number,
-    color: string
+    color: string,
   ) => { borderWidth: number; borderColor: string };
   $padding: (value: number) => { padding: number };
   $paddingTop: (value: number) => { paddingTop: number };
@@ -141,7 +142,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   const [screen, setScreen] = React.useState({ width: 0, height: 0 });
   const [scheme, setScheme] = React.useState<Scheme>(
-    Appearance.getColorScheme() || "light"
+    Appearance.getColorScheme() || "light",
   );
 
   React.useEffect(() => {
@@ -158,19 +159,18 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   const styles: Styles = React.useMemo(() => {
     const paddingStyles = paddingTypes.reduce((acc, type) => {
-      acc[type] = Object.entries(values).reduce((acc, [key, value]) => {
-        acc[key as unknown as Keys] = {
-          [`padding${
-            type !== "all" ? type.charAt(0).toUpperCase() + type.slice(1) : ""
-          }`]: value,
+      acc[type] = Object.entries(values).reduce((a, [key, value]) => {
+        a[key as unknown as Keys] = {
+          [`padding${type !== "all" ? type.charAt(0).toUpperCase() + type.slice(1) : ""}`]:
+            value,
         };
-        return acc;
+        return a;
       }, {} as PaddingStyle);
       return acc;
     }, {} as PaddingStyles);
 
     const safePaddingStyles = paddingTypes.reduce((acc, type) => {
-      acc[type] = Object.entries(values).reduce((acc, [key, value]) => {
+      acc[type] = Object.entries(values).reduce((a, [key, value]) => {
         let style: PaddingStyleKeys;
         switch (type) {
           case "all":
@@ -214,25 +214,25 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
             };
             break;
         }
-        acc[key as unknown as Keys] = style;
-        return acc;
+        a[key as unknown as Keys] = style;
+        return a;
       }, {} as PaddingStyle);
       return acc;
     }, {} as PaddingStyles);
 
     const gapStyles = gapTypes.reduce((acc, type) => {
-      acc[type] = Object.entries(values).reduce((acc, [key, value]) => {
-        acc[key as unknown as Keys] = {
+      acc[type] = Object.entries(values).reduce((a, [key, value]) => {
+        a[key as unknown as Keys] = {
           [`${type === "all" ? "" : type}${type === "all" ? "gap" : "Gap"}`]:
             value,
         };
-        return acc;
+        return a;
       }, {} as GapStyle);
       return acc;
     }, {} as GapStyles);
 
     const borderRadiusStyles = borderRadiusTypes.reduce((acc, type) => {
-      acc[type] = Object.entries(values).reduce((acc, [key, value]) => {
+      acc[type] = Object.entries(values).reduce((a, [key, value]) => {
         let style: BorderRadiusStyleKeys;
         switch (type) {
           case "all":
@@ -265,8 +265,8 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
             };
             break;
         }
-        acc[key as unknown as Keys] = style;
-        return acc;
+        a[key as unknown as Keys] = style;
+        return a;
       }, {} as BorderRadiusStyle);
       return acc;
     }, {} as BorderRadiusStyles);
@@ -372,8 +372,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       onLayout={(event) => {
         const { width, height } = event.nativeEvent.layout;
         setScreen({ width, height });
-      }}
-    >
+      }}>
       <ThemeContext.Provider
         value={{
           scheme,
@@ -382,15 +381,20 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
           insets,
           values,
           screen,
-        }}
-      >
+        }}>
         {screen.width > 0 && screen.height > 0 ? children : null}
       </ThemeContext.Provider>
     </View>
   );
 };
 
-const useTheme = () => React.useContext(ThemeContext);
+const useTheme = () => {
+  const context = React.useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useTheme must be used within an ThemeProvider");
+  }
+  return context;
+};
 
 export { ThemeProvider, useTheme };
 export type { AlignItems, JustifyContent, AlignSelf };

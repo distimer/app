@@ -1,18 +1,21 @@
-import type { StyleProp, ViewStyle } from "react-native";
-import { View } from "react-native";
-
 import type { AlignItems, AlignSelf, JustifyContent } from "contexts/theme";
-import { useTheme } from "contexts/theme";
+import type { StyleProp, ViewStyle } from "react-native";
 import type { GapStyle } from "styles/styles";
 
+import React from "react";
+import { View } from "react-native";
+
+import { useTheme } from "contexts/theme";
+
 interface StackProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   gap?: keyof GapStyle;
   align?: keyof AlignItems;
   justify?: keyof JustifyContent;
   self?: keyof AlignSelf;
   fill?: boolean;
   style?: StyleProp<ViewStyle>;
+  skeleton?: boolean;
 }
 
 interface StackBaseProps extends StackProps {
@@ -27,6 +30,7 @@ const StackBase: React.FC<StackBaseProps> = ({
   self,
   fill,
   style,
+  skeleton,
 }) => {
   const { styles } = useTheme();
 
@@ -40,8 +44,8 @@ const StackBase: React.FC<StackBaseProps> = ({
         self && styles.self[self],
         fill && styles.$flex(1),
         style,
-      ]}
-    >
+        skeleton && { backgroundColor: "green" },
+      ]}>
       {children}
     </View>
   );

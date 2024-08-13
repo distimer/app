@@ -84,3 +84,4 @@ const weightStyles = StyleSheet.create({
 });
 
 export { textStyles, weightStyles };
+export { lineHeight };

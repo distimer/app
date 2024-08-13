@@ -7,13 +7,17 @@ const values = {
   "-500": -20,
   "-400": -16,
   "-300": -12,
+  "-250": -10,
   "-200": -8,
+  "-150": -6,
   "-100": -4,
   "-50": -2,
   0: 0,
   50: 2,
   100: 4,
+  150: 6,
   200: 8,
+  250: 10,
   300: 12,
   400: 16,
   500: 20,
@@ -25,6 +29,7 @@ const values = {
 } as const;
 type Keys = keyof typeof values;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const paddingStyleKeys = [
   "padding",
   "paddingTop",
@@ -53,6 +58,7 @@ type PaddingStyles = {
   [key in (typeof paddingTypes)[number]]: PaddingStyle;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const gapStyleKeys = ["gap", "rowGap", "columnGap"] as const;
 type GapStyleKeys = {
   [key in (typeof gapStyleKeys)[number]]?: number;
@@ -65,6 +71,7 @@ type GapStyles = {
   [key in (typeof gapTypes)[number]]: GapStyle;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const borderRadiusStyleKeys = [
   "borderRadius",
   "borderTopLeftRadius",
