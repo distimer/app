@@ -17,6 +17,7 @@ import { ButtonItem, InputItem } from "components/common";
 import { Container } from "components/layout";
 
 import { ColorPicker } from "screens/sheets";
+import { SubjectCategory } from "screens/sheets/subjectCategory";
 
 const CreateSubject = () => {
   const { params } =
@@ -25,23 +26,25 @@ const CreateSubject = () => {
 
   const { startLoading, endLoading } = useLoading();
 
-  const sheetRef = React.useRef<BottomSheetModal>(null);
+  const categorySheetRef = React.useRef<BottomSheetModal>(null);
+  const colorSheetRef = React.useRef<BottomSheetModal>(null);
 
   const { data, refetch } = useGetCategory();
 
-  const dataName = React.useMemo(
-    () => data?.find((item) => item.id === params.id)?.name,
-    [data, params.id],
-  );
-
   const [name, setName] = React.useState("");
+  const [category, setCategory] = React.useState(params.id);
   const [color, setColor] = React.useState("#000000");
   const [pass, setPass] = React.useState(false);
+
+  const categoryName = React.useMemo(
+    () => data?.find((item) => item.id === category)?.name || "",
+    [data, category],
+  );
 
   const submit = async () => {
     startLoading();
     try {
-      await postSubjectId(params.id, {
+      await postSubjectId(category, {
         name,
         color,
       });
@@ -77,18 +80,27 @@ const CreateSubject = () => {
       />
       <ButtonItem
         title="카테고리"
-        subtitle={dataName || ""}
+        subtitle={categoryName}
         leadingIcon="Folder"
         trailingIcon="ArrowsClockwise"
+        onPress={() => categorySheetRef.current?.present()}
       />
       <ButtonItem
         title="색상"
         subtitle={color}
         leadingColor={color}
         trailingIcon="Eyedropper"
-        onPress={() => sheetRef.current?.present()}
+        onPress={() => colorSheetRef.current?.present()}
       />
-      <ColorPicker sheetRef={sheetRef} color={color} setColor={setColor} />
+      <SubjectCategory
+        sheetRef={categorySheetRef}
+        initial={category}
+        onSubmit={(category) => {
+          setCategory(category);
+          categorySheetRef.current?.dismiss();
+        }}
+      />
+      <ColorPicker sheetRef={colorSheetRef} color={color} setColor={setColor} />
     </Container>
   );
 };

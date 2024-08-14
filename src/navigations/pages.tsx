@@ -38,8 +38,7 @@ type PagesStackParamList = {
     id: string;
   };
   EditSubject: {
-    categoryId: string;
-    subjectId: string;
+    id: string;
   };
   AppInfo: undefined;
   Opensource: undefined;

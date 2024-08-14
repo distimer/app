@@ -105,8 +105,7 @@ const CategorySubject = () => {
                           navigation.navigate("PagesStack", {
                             screen: "EditSubject",
                             params: {
-                              categoryId: item.id,
-                              subjectId: subject.id,
+                              id: subject.id,
                             },
                           });
                         }}>
