@@ -68,6 +68,7 @@ const Input: React.FC<InputProps> = ({
             textAlign: align,
           },
         ]}
+        autoCapitalize="none"
         value={!sheet || forceValue ? value : undefined}
         onChangeText={setValue}
         placeholder={placeholder}
