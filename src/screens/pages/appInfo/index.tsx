@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { getVersion } from "react-native-device-info";
 
 import { useMainNavigation } from "navigations";
 
@@ -31,7 +32,7 @@ const AppInfo = () => {
               DISTIMER
             </Text>
             <Text type="body" weight="medium" color={colors.gray[400]}>
-              버전 1.0
+              버전 {getVersion()}
             </Text>
           </VStack>
         </VStack>

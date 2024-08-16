@@ -19,12 +19,12 @@
 		6675C8383B954EBBBA4EEAF3 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-distimer-distimerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-distimer-distimerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		871147A6F270498AB1C3EAF7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */; };
 		9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */; };
+		AB144C11BD4A41B3959FBE25 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AD02C0BB0A416FB4064BAE /* Colors.xcassets */; };
 		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
 		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
 		FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */; };
-		871147A6F270498AB1C3EAF7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */; };
-		AB144C11BD4A41B3959FBE25 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AD02C0BB0A416FB4064BAE /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +55,12 @@
 		5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer.release.xcconfig"; path = "Target Support Files/Pods-distimer/Pods-distimer.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.debug.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-distimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76AD02C0BB0A416FB4064BAE /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = distimer/Colors.xcassets; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = distimer/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Black.ttf"; path = "../assets/fonts/WantedSans-Black.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.release.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.release.xcconfig"; sourceTree = "<group>"; };
 		966D172683AC434A8798983E /* WantedSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Regular.ttf"; path = "../assets/fonts/WantedSans-Regular.ttf"; sourceTree = "<group>"; };
+		A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = distimer/BootSplash.storyboard; sourceTree = "<group>"; };
 		AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Medium.ttf"; path = "../assets/fonts/WantedSans-Medium.ttf"; sourceTree = "<group>"; };
 		B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBlack.ttf"; path = "../assets/fonts/WantedSans-ExtraBlack.ttf"; sourceTree = "<group>"; };
 		B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-SemiBold.ttf"; path = "../assets/fonts/WantedSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = distimer.entitlements; path = distimer/distimer.entitlements; sourceTree = "<group>"; };
 		FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "distimer/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		76AD02C0BB0A416FB4064BAE /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "distimer/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
