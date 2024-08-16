@@ -8,7 +8,14 @@ import { useGetGroup } from "api/endpoints/group/group";
 
 import { useTheme } from "contexts/theme";
 
-import { HStack, Icon, SheetContainer, Text } from "components/common";
+import {
+  Empty,
+  HStack,
+  Icon,
+  SheetContainer,
+  Text,
+  VStack,
+} from "components/common";
 import { Wrapper } from "components/layout";
 
 interface TimerGroupProps {
@@ -29,7 +36,8 @@ const TimerGroup: React.FC<TimerGroupProps> = ({
 
   const { data } = useGetGroup();
 
-  const isAllSelected = data?.length === groups.length;
+  const isAllSelected =
+    data && data?.length > 0 && data?.length === groups.length;
 
   React.useEffect(() => {
     setGroups(initial);
@@ -85,7 +93,13 @@ const TimerGroup: React.FC<TimerGroupProps> = ({
           onSubmit(groups);
         },
       }}>
-      <Wrapper data={data}>
+      <Wrapper
+        data={data}
+        empty={
+          <VStack justify="center" fill>
+            <Empty>참여하고 있는 그룹이 없어요.</Empty>
+          </VStack>
+        }>
         {(data) => (
           <FlatList
             data={data}

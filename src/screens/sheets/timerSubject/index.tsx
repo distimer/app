@@ -126,7 +126,7 @@ const TimerSubject: React.FC<TimerSubjectProps> = ({
         data={filteredData}
         empty={
           <VStack justify="center" fill>
-            <Empty>카테고리 / 과목이 없습니다.</Empty>
+            <Empty>카테고리 / 과목이 없어요.</Empty>
           </VStack>
         }>
         {() => (

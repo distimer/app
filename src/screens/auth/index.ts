@@ -1,3 +1,4 @@
 export * from "./login";
-export * from "./agreement";
+export * from "./privacy";
+export * from "./term";
 export * from "./name";
