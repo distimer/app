@@ -1,18 +1,16 @@
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { AuthStackParamList } from "navigations/auth";
+
 import React from "react";
 
-import { putUser } from "api/endpoints/user/user";
-
-import { useAuth } from "contexts/auth";
-import { useLoading } from "contexts/loading";
 import { useTheme } from "contexts/theme";
 
 import { HStack, Input, PhosphorIcon, Text, VStack } from "components/common";
 import { Container } from "components/layout";
 
-const Name: React.FC = () => {
+type Props = NativeStackScreenProps<AuthStackParamList, "AuthName">;
+const Name: React.FC<Props> = ({ navigation }) => {
   const { colors } = useTheme();
-  const { refresh } = useAuth();
-  const { startLoading, endLoading } = useLoading();
 
   const [name, setName] = React.useState("");
 
@@ -20,29 +18,17 @@ const Name: React.FC = () => {
     return name.length >= 1 && name.length <= 20;
   }, [name]);
 
-  const submit = async () => {
-    if (ok) {
-      startLoading();
-      try {
-        await putUser({
-          name,
-          terms_agreed: true,
-        });
-        await refresh();
-      } finally {
-        endLoading();
-      }
-    }
-  };
-
   return (
     <Container
       title="사용자 이름 설정"
       dim
+      backable
       button={{
         title: "다음",
         disabled: !ok,
-        onPress: submit,
+        onPress: () => {
+          navigation.navigate("AuthSuggestion", { name });
+        },
       }}>
       <VStack justify="center" gap={400} fill>
         <VStack gap={300}>

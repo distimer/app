@@ -23,13 +23,16 @@ const CreateCategory: React.FC<CreateCategoryProps> = ({ sheetRef }) => {
   const submit = async () => {
     Keyboard.dismiss();
     startLoading();
-    await postCategory({
-      name,
-    });
-    await refetch();
-    endLoading();
-    setName("");
-    sheetRef.current?.close();
+    try {
+      await postCategory({
+        name,
+      });
+      await refetch();
+      sheetRef.current?.close();
+    } finally {
+      setName("");
+      endLoading();
+    }
   };
 
   return (

@@ -17,12 +17,26 @@ import type {
   SubjectctrlSubjectOrderElement
 } from '../../schemas'
 
+export const getPostSubjectBatchResponseMock = (): SubjectctrlSubjectDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})})))
+
 export const getPatchSubjectOrderResponseMock = (): SubjectctrlSubjectOrderElement[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({order: faker.number.int({min: 0, max: undefined}), subject_id: faker.word.sample()})))
 
 export const getPutSubjectIdResponseMock = (overrideResponse: Partial< SubjectctrlSubjectDTO > = {}): SubjectctrlSubjectDTO => ({color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined}), ...overrideResponse})
 
 export const getPostSubjectIdResponseMock = (overrideResponse: Partial< SubjectctrlSubjectDTO > = {}): SubjectctrlSubjectDTO => ({color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined}), ...overrideResponse})
 
+
+export const getPostSubjectBatchMockHandler = (overrideResponse?: SubjectctrlSubjectDTO[] | ((info: Parameters<Parameters<typeof http.post>[1]>[0]) => Promise<SubjectctrlSubjectDTO[]> | SubjectctrlSubjectDTO[])) => {
+  return http.post('*/subject/batch', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getPostSubjectBatchResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
 
 export const getPatchSubjectOrderMockHandler = (overrideResponse?: SubjectctrlSubjectOrderElement[] | ((info: Parameters<Parameters<typeof http.patch>[1]>[0]) => Promise<SubjectctrlSubjectOrderElement[]> | SubjectctrlSubjectOrderElement[])) => {
   return http.patch('*/subject/order', async (info) => {await delay(1000);
@@ -70,6 +84,7 @@ export const getDeleteSubjectIdMockHandler = (overrideResponse?: void | ((info: 
   })
 }
 export const getSubjectMock = () => [
+  getPostSubjectBatchMockHandler(),
   getPatchSubjectOrderMockHandler(),
   getPutSubjectIdMockHandler(),
   getPostSubjectIdMockHandler(),

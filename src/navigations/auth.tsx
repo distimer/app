@@ -8,13 +8,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useAuth } from "contexts/auth";
 
-import { AuthPrivacy, AuthTerm, Login, Name } from "screens/auth";
+import { Login, Name, Privacy, Suggestion, Term } from "screens/auth";
 
 type AuthStackParamList = {
   AuthLogin: undefined;
   AuthPrivacy: undefined;
   AuthTerm: undefined;
   AuthName: undefined;
+  AuthSuggestion: {
+    name: string;
+  };
 };
 type AuthStackProps = StackNavigationProp<AuthStackParamList>;
 const Stack = createNativeStackNavigator<AuthStackParamList>();
@@ -51,9 +54,10 @@ const AuthStack = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="AuthLogin" component={Login} />
-      <Stack.Screen name="AuthPrivacy" component={AuthPrivacy} />
-      <Stack.Screen name="AuthTerm" component={AuthTerm} />
+      <Stack.Screen name="AuthPrivacy" component={Privacy} />
+      <Stack.Screen name="AuthTerm" component={Term} />
       <Stack.Screen name="AuthName" component={Name} />
+      <Stack.Screen name="AuthSuggestion" component={Suggestion} />
     </Stack.Navigator>
   );
 };

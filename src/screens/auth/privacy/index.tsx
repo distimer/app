@@ -9,7 +9,7 @@ import { useTheme } from "contexts/theme";
 import { Container } from "components/layout";
 
 type Props = NativeStackScreenProps<AuthStackParamList, "AuthPrivacy">;
-const AuthPrivacy: React.FC<Props> = ({ navigation }) => {
+const Privacy: React.FC<Props> = ({ navigation }) => {
   const { styles, colors } = useTheme();
 
   return (
@@ -34,4 +34,4 @@ const AuthPrivacy: React.FC<Props> = ({ navigation }) => {
   );
 };
 
-export { AuthPrivacy };
+export { Privacy };

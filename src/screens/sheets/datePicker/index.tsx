@@ -29,7 +29,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       trailingIcon={{
         name: "ClockClockwise",
         onPress: () => {
-          setTempDate(new Date(tempDate.setSeconds(0)));
+          setTempDate(new Date(new Date().setSeconds(0)));
         },
       }}
       button={{

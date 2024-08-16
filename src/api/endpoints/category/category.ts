@@ -28,6 +28,7 @@ import type {
 import type {
   CategoryctrlCategoryDTO,
   CategoryctrlCategoryOrderElement,
+  CategoryctrlCreateCategoryBatchReq,
   CategoryctrlCreateCategoryReqBody,
   CategoryctrlModifyCategoryRes
 } from '../../schemas'
@@ -246,6 +247,63 @@ export const usePostCategory = <TError = ErrorType<void>,
       > => {
 
       const mutationOptions = getPostCategoryMutationOptions(options);
+
+      return useMutation(mutationOptions);
+    }
+    /**
+ * @summary Create Batch Category
+ */
+export const postCategoryBatch = (
+    categoryctrlCreateCategoryBatchReq: BodyType<CategoryctrlCreateCategoryBatchReq>,
+ options?: SecondParameter<typeof customInstance>,) => {
+      
+      
+      return customInstance<CategoryctrlCategoryDTO[]>(
+      {url: `/category/batch`, method: 'POST',
+      headers: {'Content-Type': 'application/json', },
+      data: categoryctrlCreateCategoryBatchReq
+    },
+      options);
+    }
+  
+
+
+export const getPostCategoryBatchMutationOptions = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof postCategoryBatch>>, TError,{data: BodyType<CategoryctrlCreateCategoryBatchReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationOptions<Awaited<ReturnType<typeof postCategoryBatch>>, TError,{data: BodyType<CategoryctrlCreateCategoryBatchReq>}, TContext> => {
+const {mutation: mutationOptions, request: requestOptions} = options ?? {};
+
+      
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof postCategoryBatch>>, {data: BodyType<CategoryctrlCreateCategoryBatchReq>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  postCategoryBatch(data,requestOptions)
+        }
+
+        
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PostCategoryBatchMutationResult = NonNullable<Awaited<ReturnType<typeof postCategoryBatch>>>
+    export type PostCategoryBatchMutationBody = BodyType<CategoryctrlCreateCategoryBatchReq>
+    export type PostCategoryBatchMutationError = ErrorType<void>
+
+    /**
+ * @summary Create Batch Category
+ */
+export const usePostCategoryBatch = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof postCategoryBatch>>, TError,{data: BodyType<CategoryctrlCreateCategoryBatchReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationResult<
+        Awaited<ReturnType<typeof postCategoryBatch>>,
+        TError,
+        {data: BodyType<CategoryctrlCreateCategoryBatchReq>},
+        TContext
+      > => {
+
+      const mutationOptions = getPostCategoryBatchMutationOptions(options);
 
       return useMutation(mutationOptions);
     }

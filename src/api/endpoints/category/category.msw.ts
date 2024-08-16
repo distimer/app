@@ -22,6 +22,8 @@ export const getGetCategoryResponseMock = (): CategoryctrlCategoryDTO[] => (Arra
 
 export const getPostCategoryResponseMock = (overrideResponse: Partial< CategoryctrlCategoryDTO > = {}): CategoryctrlCategoryDTO => ({id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined}), subjects: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})})), ...overrideResponse})
 
+export const getPostCategoryBatchResponseMock = (): CategoryctrlCategoryDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined}), subjects: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})}))})))
+
 export const getPatchCategoryOrderResponseMock = (): CategoryctrlCategoryOrderElement[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})})))
 
 export const getPutCategoryIdResponseMock = (overrideResponse: Partial< CategoryctrlModifyCategoryRes > = {}): CategoryctrlModifyCategoryRes => ({id: faker.helpers.arrayElement([faker.word.sample(), undefined]), name: faker.helpers.arrayElement([faker.word.sample(), undefined]), ...overrideResponse})
@@ -45,6 +47,18 @@ export const getPostCategoryMockHandler = (overrideResponse?: CategoryctrlCatego
     return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
             ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
             : getPostCategoryResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
+export const getPostCategoryBatchMockHandler = (overrideResponse?: CategoryctrlCategoryDTO[] | ((info: Parameters<Parameters<typeof http.post>[1]>[0]) => Promise<CategoryctrlCategoryDTO[]> | CategoryctrlCategoryDTO[])) => {
+  return http.post('*/category/batch', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getPostCategoryBatchResponseMock()),
       { status: 200,
         headers: { 'Content-Type': 'application/json' }
       })
@@ -87,6 +101,7 @@ export const getDeleteCategoryIdMockHandler = (overrideResponse?: void | ((info:
 export const getCategoryMock = () => [
   getGetCategoryMockHandler(),
   getPostCategoryMockHandler(),
+  getPostCategoryBatchMockHandler(),
   getPatchCategoryOrderMockHandler(),
   getPutCategoryIdMockHandler(),
   getDeleteCategoryIdMockHandler()

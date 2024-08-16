@@ -6,6 +6,10 @@ const errors: {
   "Category has subjects": "하위 과목이 존재합니다.",
   "Study log is already exist at the same time":
     "이미 같은 시간대에 다른 학습기록이 존재합니다.",
+  "Category limit exceeded": "카테고리 제한을 초과하였습니다.",
+  "Subject limit exceeded": "과목 제한을 초과하였습니다.",
+  "Quit user can re-register after 1 week":
+    "탈퇴한 사용자는 1주일 후 재가입할 수 있습니다.",
 };
 const existsError = (error: string) => errors[error] !== undefined;
 

@@ -13,6 +13,7 @@ import type {
   UseMutationResult
 } from '@tanstack/react-query'
 import type {
+  SubjectctrlCreateSubjectBatchReq,
   SubjectctrlCreateSubjectReq,
   SubjectctrlModifySubjectInfoReq,
   SubjectctrlSubjectDTO,
@@ -26,6 +27,63 @@ type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
 
 
 /**
+ * @summary Create Batch Subject
+ */
+export const postSubjectBatch = (
+    subjectctrlCreateSubjectBatchReq: BodyType<SubjectctrlCreateSubjectBatchReq>,
+ options?: SecondParameter<typeof customInstance>,) => {
+      
+      
+      return customInstance<SubjectctrlSubjectDTO[]>(
+      {url: `/subject/batch`, method: 'POST',
+      headers: {'Content-Type': 'application/json', },
+      data: subjectctrlCreateSubjectBatchReq
+    },
+      options);
+    }
+  
+
+
+export const getPostSubjectBatchMutationOptions = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof postSubjectBatch>>, TError,{data: BodyType<SubjectctrlCreateSubjectBatchReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationOptions<Awaited<ReturnType<typeof postSubjectBatch>>, TError,{data: BodyType<SubjectctrlCreateSubjectBatchReq>}, TContext> => {
+const {mutation: mutationOptions, request: requestOptions} = options ?? {};
+
+      
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof postSubjectBatch>>, {data: BodyType<SubjectctrlCreateSubjectBatchReq>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  postSubjectBatch(data,requestOptions)
+        }
+
+        
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PostSubjectBatchMutationResult = NonNullable<Awaited<ReturnType<typeof postSubjectBatch>>>
+    export type PostSubjectBatchMutationBody = BodyType<SubjectctrlCreateSubjectBatchReq>
+    export type PostSubjectBatchMutationError = ErrorType<void>
+
+    /**
+ * @summary Create Batch Subject
+ */
+export const usePostSubjectBatch = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof postSubjectBatch>>, TError,{data: BodyType<SubjectctrlCreateSubjectBatchReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationResult<
+        Awaited<ReturnType<typeof postSubjectBatch>>,
+        TError,
+        {data: BodyType<SubjectctrlCreateSubjectBatchReq>},
+        TContext
+      > => {
+
+      const mutationOptions = getPostSubjectBatchMutationOptions(options);
+
+      return useMutation(mutationOptions);
+    }
+    /**
  * @summary Modify Subject Order
  */
 export const patchSubjectOrder = (

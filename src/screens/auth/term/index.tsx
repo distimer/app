@@ -9,13 +9,14 @@ import { useTheme } from "contexts/theme";
 import { Container } from "components/layout";
 
 type Props = NativeStackScreenProps<AuthStackParamList, "AuthTerm">;
-const AuthTerm: React.FC<Props> = ({ navigation }) => {
+const Term: React.FC<Props> = ({ navigation }) => {
   const { styles, colors } = useTheme();
 
   return (
     <Container
       title="이용약관"
       dim
+      backable
       button={{
         title: "이용약관 동의",
         onPress: () => {
@@ -34,4 +35,4 @@ const AuthTerm: React.FC<Props> = ({ navigation }) => {
   );
 };
 
-export { AuthTerm };
+export { Term };
