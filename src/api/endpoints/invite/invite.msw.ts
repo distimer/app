@@ -21,7 +21,7 @@ export const getGetInviteGroupIdResponseMock = (): string[] => (Array.from({leng
 
 export const getPostInviteGroupIdResponseMock = (overrideResponse: Partial< InvitectrlInviteGroupRes > = {}): InvitectrlInviteGroupRes => ({code: faker.word.sample(), ...overrideResponse})
 
-export const getGetInviteCodeResponseMock = (overrideResponse: Partial< InvitectrlInviteCodeInfoRes > = {}): InvitectrlInviteCodeInfoRes => ({group_description: faker.word.sample(), group_name: faker.word.sample(), group_owner_nickname: faker.word.sample(), ...overrideResponse})
+export const getGetInviteCodeResponseMock = (overrideResponse: Partial< InvitectrlInviteCodeInfoRes > = {}): InvitectrlInviteCodeInfoRes => ({group_description: faker.word.sample(), group_name: faker.word.sample(), group_owner_nickname: faker.word.sample(), nickname_policy: faker.word.sample(), ...overrideResponse})
 
 
 export const getGetInviteGroupIdMockHandler = (overrideResponse?: string[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<string[]> | string[])) => {

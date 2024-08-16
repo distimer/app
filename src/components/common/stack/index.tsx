@@ -59,4 +59,4 @@ const VStack: React.FC<StackProps> = (props) => {
   return <StackBase direction="column" {...props} />;
 };
 
-export { HStack, VStack };
+export { StackBase, HStack, VStack };

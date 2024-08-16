@@ -6,7 +6,12 @@
  */
 import type { SubjectctrlSubjectDTO } from './subjectctrlSubjectDTO';
 
-export interface StudylogctrlGroupMemberStatisticsElem {
-  study_time: number;
+export interface StudylogctrlGroupStudyLogDTO {
+  category_id: string;
+  category_name: string;
+  content: string;
+  end_at: string;
+  id: string;
+  start_at: string;
   subject: SubjectctrlSubjectDTO;
 }

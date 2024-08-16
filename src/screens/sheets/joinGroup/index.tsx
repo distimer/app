@@ -17,6 +17,7 @@ interface InviteInfo {
   name: string;
   description: string;
   owner: string;
+  rule: string;
 }
 interface JoinGroupProps {
   sheetRef: React.RefObject<BottomSheetModalMethods>;
@@ -62,7 +63,7 @@ const JoinGroup: React.FC<JoinGroupProps> = ({ sheetRef, info, onSubmit }) => {
         </VStack>
         <VStack gap={200}>
           <HStack align="center" gap={200}>
-            <PhosphorIcon name="IdentificationCard" color={colors.gray[400]} />
+            <PhosphorIcon name="Sword" color={colors.gray[400]} />
             <Text type="body" weight="medium" color={colors.gray[400]}>
               {info.owner}
             </Text>

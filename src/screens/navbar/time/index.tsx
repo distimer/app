@@ -11,12 +11,14 @@ import { useMainNavigation } from "navigations";
 
 import {
   postStudylog,
-  useGetStudylogStatisticsDate,
+  useGetStudylogStatisticsTerm,
 } from "api/endpoints/study-log/study-log";
 import { postTimer, useGetTimer } from "api/endpoints/timer/timer";
 
 import { useLoading } from "contexts/loading";
 import { useTheme } from "contexts/theme";
+
+import { consume } from "utils/func";
 
 import {
   Button,
@@ -27,6 +29,7 @@ import {
   Text,
   VStack,
 } from "components/common";
+import { Graph } from "components/features/statistics";
 import { Container, Wrapper } from "components/layout";
 
 import {
@@ -37,13 +40,26 @@ import {
 } from "screens/sheets";
 
 const Time: React.FC = () => {
+  const navigation = useMainNavigation();
+
   const { colors } = useTheme();
   const { startLoading, endLoading } = useLoading();
   const { dismissAll } = useBottomSheetModal();
 
-  const navigation = useMainNavigation();
+  const [today, setToday] = React.useState(moment().format("YYYY-MM-DD"));
 
-  const { data, refetch, isRefetching } = useGetStudylogStatisticsDate();
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (moment().format("YYYY-MM-DD") === today) return;
+      setToday(moment().format("YYYY-MM-DD"));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [today]);
+
+  const { data, refetch, isRefetching } = useGetStudylogStatisticsTerm({
+    start_date: moment(today).subtract(7, "days").format("YYYY-MM-DD"),
+    end_date: today,
+  });
   const { refetch: refetchTimer } = useGetTimer();
 
   const typeSheetRef = React.useRef<BottomSheetModal>(null);
@@ -61,25 +77,38 @@ const Time: React.FC = () => {
 
   const reset = () => {
     setType("timer");
-    setStartTime(new Date());
-    setEndTime(new Date());
+    const now = new Date();
+    now.setSeconds(0);
+    setStartTime(moment(now).subtract(1, "hour").toDate());
+    setEndTime(now);
     setSubject("");
+    setGroups([]);
   };
 
-  const todayStudyTime = React.useMemo(() => {
-    if (!data) return "00:00:00";
-    let sum = 0;
-    for (const log of data) {
-      if (!log.study_time) continue;
-      sum += log.study_time;
+  const statistics = React.useMemo(() => {
+    if (!data) return undefined;
+    const result = [];
+    for (const statistic of data) {
+      let sum = 0;
+      for (const log of statistic.log) {
+        sum += log.study_time;
+      }
+      result.push({
+        date: statistic.date,
+        sum,
+      });
     }
-    return moment.utc(sum * 1000).format("HH:mm:ss");
+    return result;
   }, [data]);
+  const maxSum = React.useMemo(() => {
+    if (!statistics) return 0;
+    return Math.max(...statistics.map((statistic) => statistic.sum));
+  }, [statistics]);
 
   const [refreshing, setRefreshing] = React.useState(false);
   React.useEffect(() => {
     if (isRefetching) return;
-    setRefreshing(isRefetching);
+    setRefreshing(false);
   }, [isRefetching]);
   const onRefresh = async () => {
     setRefreshing(true);
@@ -88,9 +117,9 @@ const Time: React.FC = () => {
 
   const submit = async (content: string) => {
     Keyboard.dismiss();
-    if (type === "timer") {
-      startLoading();
-      try {
+    startLoading();
+    try {
+      if (type === "timer") {
         await postTimer({
           subject_id: subject,
           shared_group_ids: groups,
@@ -101,27 +130,23 @@ const Time: React.FC = () => {
           index: 0,
           routes: [{ name: "Timer" }],
         });
-      } finally {
-        endLoading();
-      }
-    } else {
-      startLoading();
-      try {
+      } else {
         await postStudylog({
-          start_at: moment(startTime).set({ second: 0 }).toISOString(),
-          end_at: moment(endTime).set({ second: 0 }).toISOString(),
           subject_id: subject,
           groups_to_share: groups,
           content,
+          start_at: moment(startTime).toISOString(),
+          end_at: moment(endTime).toISOString(),
         });
         await refetch();
         dismissAll();
-      } finally {
-        console.log(moment(startTime).toISOString());
-        endLoading();
       }
+    } finally {
+      endLoading();
     }
   };
+
+  // return null;
 
   return (
     <Container
@@ -133,9 +158,9 @@ const Time: React.FC = () => {
       }}>
       <VStack justify="center" fill>
         <Wrapper
-          data={data}
+          data={statistics}
           skeleton={
-            <Skeleton>
+            <Skeleton color={colors.gray[200]}>
               <VStack gap={1000}>
                 <VStack align="center" gap={800}>
                   <VStack align="center" gap={300}>
@@ -143,6 +168,44 @@ const Time: React.FC = () => {
                     <SkeletonText type="important" weight="bold" width={180} />
                   </VStack>
                   <VStack align="center" gap={400}>
+                    <Graph
+                      maxSum={10}
+                      selectedDates={[]}
+                      data={[
+                        {
+                          date: "",
+                          sum: 4,
+                        },
+                        {
+                          date: "",
+                          sum: 7,
+                        },
+                        {
+                          date: "",
+                          sum: 5,
+                        },
+                        {
+                          date: "",
+                          sum: 2,
+                        },
+                        {
+                          date: "",
+                          sum: 5,
+                        },
+                        {
+                          date: "",
+                          sum: 6,
+                        },
+                        {
+                          date: "",
+                          sum: 10,
+                        },
+                        {
+                          date: "",
+                          sum: 2,
+                        },
+                      ]}
+                    />
                     <SkeletonText
                       type="footnote"
                       weight="medium"
@@ -160,7 +223,7 @@ const Time: React.FC = () => {
               </VStack>
             </Skeleton>
           }>
-          {() => (
+          {(statistics) => (
             <VStack gap={1000}>
               <VStack align="center" gap={800}>
                 <VStack align="center" gap={300}>
@@ -168,17 +231,34 @@ const Time: React.FC = () => {
                     오늘 공부한 시간
                   </Text>
                   <Text type="important" weight="bold" color={colors.gray[800]}>
-                    {todayStudyTime}
+                    {consume(statistics[7].sum)}
                   </Text>
                 </VStack>
                 <VStack align="center" gap={400}>
+                  <Graph
+                    maxSum={maxSum}
+                    selectedDates={[today]}
+                    data={statistics}
+                  />
                   <Text
                     type="footnote"
                     weight="medium"
                     color={colors.gray[400]}
                     align="center"
                     line={2}>
-                    지난 주에 비해{"\n"}2시간 적게 공부하고 있어요.
+                    지난 주에 비해{"\n"}
+                    {statistics[0].sum === statistics[7].sum ? (
+                      <>공부량이 같아요.</>
+                    ) : (
+                      <>
+                        {consume(
+                          Math.abs(statistics[0].sum - statistics[7].sum),
+                        )}{" "}
+                        {statistics[7].sum > statistics[0].sum
+                          ? "더 많이 공부하고 있어요."
+                          : "적게 공부하고 있어요."}
+                      </>
+                    )}
                   </Text>
                 </VStack>
                 <HStack align="center" gap={100}>
@@ -186,7 +266,7 @@ const Time: React.FC = () => {
                     type="subheadline"
                     weight="semiBold"
                     color={colors.gray[700]}>
-                    학습 기록 보기
+                    학습기록 보기
                   </Text>
                   <PhosphorIcon
                     name="ArrowRight"
@@ -208,10 +288,16 @@ const Time: React.FC = () => {
       </VStack>
       <TimerType
         sheetRef={typeSheetRef}
-        onSubmit={(type, start, end) => {
+        start={{
+          date: startTime,
+          setDate: setStartTime,
+        }}
+        end={{
+          date: endTime,
+          setDate: setEndTime,
+        }}
+        onSubmit={(type) => {
           setType(type);
-          setStartTime(start);
-          setEndTime(end);
           subjectSheetRef.current?.present();
         }}
       />
@@ -219,6 +305,7 @@ const Time: React.FC = () => {
         sheetRef={subjectSheetRef}
         type={type}
         previous
+        initial={subject}
         onSubmit={(subject) => {
           setSubject(subject);
           groupSheetRef.current?.present();
@@ -227,6 +314,7 @@ const Time: React.FC = () => {
       <TimerGroup
         sheetRef={groupSheetRef}
         previous
+        initial={groups}
         onSubmit={(groups) => {
           setGroups(groups);
           contentSheetRef.current?.present();

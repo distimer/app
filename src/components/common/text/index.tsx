@@ -58,12 +58,13 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({
       type={type}
       weight={weight}
       color="red"
+      line={line}
       style={{
         width: width,
         backgroundColor: "blue",
       }}>
-      {"a"}
-      {"\n".repeat(line - 1)}
+      {"-"}
+      {"\n-".repeat(line - 1)}
     </Text>
   );
 };

@@ -152,7 +152,7 @@ const EditSubject = () => {
             <ButtonItem
               title="카테고리"
               subtitle={tempCategoryName}
-              leadingIcon="Folder"
+              leadingIcon="FolderSimple"
               trailingIcon="ArrowsClockwise"
               onPress={() => categorySheetRef.current?.present()}
             />

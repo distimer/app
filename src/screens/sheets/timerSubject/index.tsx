@@ -24,17 +24,19 @@ interface TimerSubjectProps {
   sheetRef: React.RefObject<BottomSheetModalMethods>;
   type: TimerType | "save";
   previous?: boolean;
+  initial?: string;
   onSubmit: (subject: string) => void;
 }
 const TimerSubject: React.FC<TimerSubjectProps> = ({
   sheetRef,
+  type,
+  initial = "",
   previous,
   onSubmit,
-  type,
 }) => {
   const { styles, colors, values } = useTheme();
 
-  const [subject, setSubject] = React.useState<string>("");
+  const [subject, setSubject] = React.useState<string>(initial);
   const [excluded, setExcluded] = React.useState<string[]>([]);
 
   const { data } = useGetCategory();
@@ -57,6 +59,10 @@ const TimerSubject: React.FC<TimerSubjectProps> = ({
     [filteredData, excluded],
   );
 
+  React.useEffect(() => {
+    setSubject(initial);
+  }, [initial]);
+
   return (
     <SheetContainer
       sheetRef={sheetRef}
@@ -65,7 +71,7 @@ const TimerSubject: React.FC<TimerSubjectProps> = ({
       fixed
       scrollable
       onDismiss={() => {
-        setSubject("");
+        setSubject(initial);
         setExcluded([]);
       }}
       button={{

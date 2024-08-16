@@ -23,9 +23,11 @@ export const getPostGroupResponseMock = (overrideResponse: Partial< GroupctrlGro
 
 export const getPostGroupJoinResponseMock = (overrideResponse: Partial< GroupctrlGroupDTO > = {}): GroupctrlGroupDTO => ({create_at: faker.word.sample(), description: faker.word.sample(), id: faker.word.sample(), invite_policy: faker.number.int({min: undefined, max: undefined}), name: faker.word.sample(), nickname_policy: faker.word.sample(), owner_nickname: faker.word.sample(), reveal_policy: faker.number.int({min: undefined, max: undefined}), ...overrideResponse})
 
+export const getPutGroupMemberGroupIDMemberIDResponseMock = (overrideResponse: Partial< GroupctrlAffiliationDTO > = {}): GroupctrlAffiliationDTO => ({group_id: faker.word.sample(), joined_at: faker.word.sample(), nickname: faker.word.sample(), role: faker.number.int({min: 0, max: 2}), user_id: faker.word.sample(), ...overrideResponse})
+
 export const getGetGroupMemberIdResponseMock = (): GroupctrlAffiliationDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({group_id: faker.word.sample(), joined_at: faker.word.sample(), nickname: faker.word.sample(), role: faker.number.int({min: 0, max: 2}), user_id: faker.word.sample()})))
 
-export const getPatchGroupRoleIdResponseMock = (overrideResponse: Partial< GroupctrlAffiliationDTO > = {}): GroupctrlAffiliationDTO => ({group_id: faker.word.sample(), joined_at: faker.word.sample(), nickname: faker.word.sample(), role: faker.number.int({min: 0, max: 2}), user_id: faker.word.sample(), ...overrideResponse})
+export const getPatchGroupNicknameIdResponseMock = (overrideResponse: Partial< GroupctrlAffiliationDTO > = {}): GroupctrlAffiliationDTO => ({group_id: faker.word.sample(), joined_at: faker.word.sample(), nickname: faker.word.sample(), role: faker.number.int({min: 0, max: 2}), user_id: faker.word.sample(), ...overrideResponse})
 
 export const getPutGroupIdResponseMock = (overrideResponse: Partial< GroupctrlGroupDTO > = {}): GroupctrlGroupDTO => ({create_at: faker.word.sample(), description: faker.word.sample(), id: faker.word.sample(), invite_policy: faker.number.int({min: undefined, max: undefined}), name: faker.word.sample(), nickname_policy: faker.word.sample(), owner_nickname: faker.word.sample(), reveal_policy: faker.number.int({min: undefined, max: undefined}), ...overrideResponse})
 
@@ -66,6 +68,28 @@ export const getPostGroupJoinMockHandler = (overrideResponse?: GroupctrlGroupDTO
   })
 }
 
+export const getPutGroupMemberGroupIDMemberIDMockHandler = (overrideResponse?: GroupctrlAffiliationDTO | ((info: Parameters<Parameters<typeof http.put>[1]>[0]) => Promise<GroupctrlAffiliationDTO> | GroupctrlAffiliationDTO)) => {
+  return http.put('*/group/member/:groupID/:memberID', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getPutGroupMemberGroupIDMemberIDResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
+export const getDeleteGroupMemberGroupIDMemberIDMockHandler = (overrideResponse?: void | ((info: Parameters<Parameters<typeof http.delete>[1]>[0]) => Promise<void> | void)) => {
+  return http.delete('*/group/member/:groupID/:memberID', async (info) => {await delay(1000);
+  if (typeof overrideResponse === 'function') {await overrideResponse(info); }
+    return new HttpResponse(null,
+      { status: 204,
+        
+      })
+  })
+}
+
 export const getGetGroupMemberIdMockHandler = (overrideResponse?: GroupctrlAffiliationDTO[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<GroupctrlAffiliationDTO[]> | GroupctrlAffiliationDTO[])) => {
   return http.get('*/group/member/:id', async (info) => {await delay(1000);
   
@@ -78,24 +102,24 @@ export const getGetGroupMemberIdMockHandler = (overrideResponse?: GroupctrlAffil
   })
 }
 
+export const getPatchGroupNicknameIdMockHandler = (overrideResponse?: GroupctrlAffiliationDTO | ((info: Parameters<Parameters<typeof http.patch>[1]>[0]) => Promise<GroupctrlAffiliationDTO> | GroupctrlAffiliationDTO)) => {
+  return http.patch('*/group/nickname/:id', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getPatchGroupNicknameIdResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
 export const getDeleteGroupQuitIdMockHandler = (overrideResponse?: void | ((info: Parameters<Parameters<typeof http.delete>[1]>[0]) => Promise<void> | void)) => {
   return http.delete('*/group/quit/:id', async (info) => {await delay(1000);
   if (typeof overrideResponse === 'function') {await overrideResponse(info); }
     return new HttpResponse(null,
       { status: 204,
         
-      })
-  })
-}
-
-export const getPatchGroupRoleIdMockHandler = (overrideResponse?: GroupctrlAffiliationDTO | ((info: Parameters<Parameters<typeof http.patch>[1]>[0]) => Promise<GroupctrlAffiliationDTO> | GroupctrlAffiliationDTO)) => {
-  return http.patch('*/group/role/:id', async (info) => {await delay(1000);
-  
-    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
-            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
-            : getPatchGroupRoleIdResponseMock()),
-      { status: 200,
-        headers: { 'Content-Type': 'application/json' }
       })
   })
 }
@@ -125,9 +149,11 @@ export const getGroupMock = () => [
   getGetGroupMockHandler(),
   getPostGroupMockHandler(),
   getPostGroupJoinMockHandler(),
+  getPutGroupMemberGroupIDMemberIDMockHandler(),
+  getDeleteGroupMemberGroupIDMemberIDMockHandler(),
   getGetGroupMemberIdMockHandler(),
+  getPatchGroupNicknameIdMockHandler(),
   getDeleteGroupQuitIdMockHandler(),
-  getPatchGroupRoleIdMockHandler(),
   getPutGroupIdMockHandler(),
   getDeleteGroupIdMockHandler()
 ]

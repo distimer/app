@@ -2,7 +2,12 @@ import type { PhosphorIconName } from "components/common";
 import type { Keys } from "styles/styles";
 
 import React from "react";
-import { KeyboardAvoidingView, TouchableOpacity, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { RefreshControl, ScrollView } from "react-native-gesture-handler";
 
 import { useMainNavigation } from "navigations";
@@ -28,6 +33,11 @@ interface ContainerSharedProps {
     disabled?: boolean;
     onPress?: () => void;
   };
+  trailingIcon?: {
+    name: PhosphorIconName;
+    color?: string;
+    onPress: () => void;
+  };
 }
 interface ContainerProps extends ContainerSharedProps {
   children: React.ReactNode;
@@ -43,45 +53,35 @@ interface ContainerProps extends ContainerSharedProps {
     name: PhosphorIconName;
     onPress: () => void;
   };
-  trailingIcon?: {
-    name: PhosphorIconName;
-    color?: string;
-    onPress: () => void;
-  };
 }
 const Container: React.FC<ContainerProps> = ({
   children,
   title,
   dim,
-  backable,
   gap = 600,
+  backable = false,
   scrollable = false,
-  fixedComponent,
   sheet = false,
   fill = true,
   refreshControl,
   leadingIcon,
   trailingIcon,
+  fixedComponent,
   button,
 }) => {
   const { styles, colors, values } = useTheme();
   const navigation = useMainNavigation();
 
-  const ContainerView = sheet ? VStack : KeyboardAvoidingView;
-
   return (
-    <ContainerView
+    <VStack
+      fill={fill}
       style={[
         !sheet && [
           styles.safePadding.top[0],
           styles.$background(dim ? colors.gray[100] : colors.gray[0]),
         ],
-        fill && styles.$flex(1),
-      ]}
-      {...(!sheet && {
-        behavior: "height",
-        keyboardShouldPersistTaps: "handled",
-      })}>
+        !!button && styles.safePadding.bottom[0],
+      ]}>
       <HStack
         align="center"
         justify="between"
@@ -124,47 +124,51 @@ const Container: React.FC<ContainerProps> = ({
           <View style={[styles.$width(24), styles.$height(24)]} />
         )}
       </HStack>
-      <VStack gap={scrollable ? 600 : 800} fill={!sheet || fill}>
-        {!!fixedComponent && (
-          <VStack style={[styles.padding.horizontal[600]]}>
-            {fixedComponent}
-          </VStack>
-        )}
-        <ScrollView
-          scrollEnabled={scrollable}
-          showsVerticalScrollIndicator={false}
-          refreshControl={
-            refreshControl ? (
-              <RefreshControl
-                refreshing={refreshControl.refreshing}
-                onRefresh={refreshControl.onRefresh}
-              />
-            ) : undefined
-          }
-          contentContainerStyle={[
-            styles.gap.all[gap],
-            styles.padding.horizontal[600],
-            !button &&
-              (dim
-                ? styles.padding.bottom[600]
-                : styles.safePadding.bottom[600]),
-            styles.$grow(1),
-          ]}>
-          {children}
-        </ScrollView>
-        {!!button && (
-          <VStack
-            style={[
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={[fill ? styles.$grow(1) : undefined]}>
+        <VStack gap={scrollable ? gap : 800} fill={fill}>
+          {!!fixedComponent && (
+            <VStack style={[styles.padding.horizontal[600]]}>
+              {fixedComponent}
+            </VStack>
+          )}
+          <ScrollView
+            scrollEnabled={scrollable}
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+              refreshControl ? (
+                <RefreshControl
+                  refreshing={refreshControl.refreshing}
+                  onRefresh={refreshControl.onRefresh}
+                />
+              ) : undefined
+            }
+            contentContainerStyle={[
+              styles.gap.all[gap],
               styles.padding.horizontal[600],
-              styles.safePadding.bottom[600],
+              !button &&
+                (dim
+                  ? styles.padding.bottom[600]
+                  : styles.safePadding.bottom[600]),
+              styles.$grow(1),
             ]}>
-            <Button disabled={button.disabled} onPress={button.onPress}>
-              {button.title}
-            </Button>
-          </VStack>
-        )}
-      </VStack>
-    </ContainerView>
+            {children}
+          </ScrollView>
+          {!!button && (
+            <VStack
+              style={[
+                styles.padding.horizontal[600],
+                styles.padding.bottom[600],
+              ]}>
+              <Button disabled={button.disabled} onPress={button.onPress}>
+                {button.title}
+              </Button>
+            </VStack>
+          )}
+        </VStack>
+      </KeyboardAvoidingView>
+    </VStack>
   );
 };
 

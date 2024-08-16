@@ -90,7 +90,7 @@ const EditCategory = () => {
       <CardItem title={dataName || name} description="카테고리" />
       <InputItem
         title="카테고리명"
-        icon="Folder"
+        icon="FolderSimple"
         range={{ min: 1, max: 20, pass, setPass }}
         placeholder="카테고리명을 입력해 주세요"
         value={name}

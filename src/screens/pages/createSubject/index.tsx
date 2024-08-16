@@ -81,7 +81,7 @@ const CreateSubject = () => {
       <ButtonItem
         title="카테고리"
         subtitle={categoryName}
-        leadingIcon="Folder"
+        leadingIcon="FolderSimple"
         trailingIcon="ArrowsClockwise"
         onPress={() => categorySheetRef.current?.present()}
       />

@@ -4,7 +4,9 @@ import type { NavigatorScreenParams } from "@react-navigation/native";
 import type { StackNavigationProp } from "@react-navigation/stack";
 
 import React from "react";
+import { BackHandler } from "react-native";
 
+import { useBottomSheetModal } from "@gorhom/bottom-sheet";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { jwtDecode } from "jwt-decode";
@@ -21,6 +23,8 @@ type NavigationParamList = {
 type NavigationProps = StackNavigationProp<NavigationParamList>;
 const Stack = createNativeStackNavigator<NavigationParamList>();
 const Navigation = () => {
+  const { dismiss } = useBottomSheetModal();
+
   const { accessToken } = useAuth();
 
   const navigation = useNavigation<NavigationProps>();
@@ -49,6 +53,19 @@ const Navigation = () => {
       setCurrentStack(stack);
     }
   }, [stack, currentStack, navigation]);
+
+  React.useEffect(() => {
+    const backAction = () => {
+      return dismiss();
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, [dismiss]);
 
   return (
     <Stack.Navigator

@@ -37,7 +37,20 @@ const My: React.FC = () => {
     icon: PhosphorIconName;
     onPress?: () => void;
   }[] = [
-    { name: "나의 학습기록", icon: "ListChecks" },
+    {
+      name: "나의 학습기록",
+      icon: "ListChecks",
+      onPress: () => {
+        navigation.navigate("PagesStack", { screen: "MyStudylogs" });
+      },
+    },
+    {
+      name: "나의 학습통계",
+      icon: "ChartBar",
+      onPress: () => {
+        navigation.navigate("PagesStack", { screen: "Statistics" });
+      },
+    },
     {
       name: "나의 카테고리 / 과목",
       icon: "Folders",
@@ -88,7 +101,7 @@ const My: React.FC = () => {
           <Wrapper
             data={data}
             skeleton={
-              <Skeleton>
+              <Skeleton color={colors.gray[100]}>
                 <VStack gap={100}>
                   <SkeletonText width={80} type="title3" weight="semiBold" />
                   <SkeletonText

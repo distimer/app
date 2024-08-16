@@ -229,6 +229,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       if (error.response?.status === 401) {
+        await resetTokens();
         return Promise.reject(error);
       }
 
@@ -256,7 +257,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       AXIOS_INSTANCE.interceptors.request.eject(requestInterceptor);
       AXIOS_INSTANCE.interceptors.response.eject(responseInterceptor);
     };
-  }, [accessToken, refreshToken, getAccessToken, refresh]);
+  }, [accessToken, refreshToken, getAccessToken, refresh, resetTokens]);
 
   React.useEffect(() => {
     const updateUserInfo = async () => {

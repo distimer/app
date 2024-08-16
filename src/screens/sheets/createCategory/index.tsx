@@ -43,7 +43,7 @@ const CreateCategory: React.FC<CreateCategoryProps> = ({ sheetRef }) => {
       }}>
       <InputItem
         title="카테고리명"
-        icon="Folder"
+        icon="FolderSimple"
         range={{
           min: 1,
           max: 20,

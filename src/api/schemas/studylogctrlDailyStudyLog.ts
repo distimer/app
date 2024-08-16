@@ -7,6 +7,6 @@
 import type { StudylogctrlDailySubjectLog } from './studylogctrlDailySubjectLog';
 
 export interface StudylogctrlDailyStudyLog {
-  date?: string;
-  log?: StudylogctrlDailySubjectLog[];
+  date: string;
+  log: StudylogctrlDailySubjectLog[];
 }

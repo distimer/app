@@ -9,5 +9,7 @@ export * from "./timerContent";
 
 export * from "./inviteCode";
 export * from "./joinGroup";
+export * from "./nickname";
+export * from "./userAction";
 
 export * from "./createCategory";

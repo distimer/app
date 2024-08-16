@@ -111,7 +111,6 @@ const Timer = () => {
   return (
     <Container
       dim
-      scrollable
       button={{
         title: "공부 종료",
         onPress: () => confirmSheetRef.current?.present(),
@@ -166,6 +165,23 @@ const Timer = () => {
                 {data.timer.content}
               </Item>
             </VStack>
+            <TimerSubject
+              sheetRef={subjectSheetRef}
+              type="save"
+              initial={data.subject.id}
+              onSubmit={async (subject) => {
+                await update({ subject });
+                subjectSheetRef.current?.dismiss();
+              }}
+            />
+            <TimerContent
+              sheetRef={contentSheetRef}
+              type="save"
+              onSubmit={async (content) => {
+                await update({ content });
+                contentSheetRef.current?.dismiss();
+              }}
+            />
           </VStack>
         )}
       </Wrapper>
@@ -176,22 +192,6 @@ const Timer = () => {
         confirmText="네"
         cancelText="아니요"
         onConfirm={end}
-      />
-      <TimerSubject
-        sheetRef={subjectSheetRef}
-        type="save"
-        onSubmit={async (subject) => {
-          await update({ subject });
-          subjectSheetRef.current?.dismiss();
-        }}
-      />
-      <TimerContent
-        sheetRef={contentSheetRef}
-        type="save"
-        onSubmit={async (content) => {
-          await update({ content });
-          contentSheetRef.current?.dismiss();
-        }}
       />
     </Container>
   );

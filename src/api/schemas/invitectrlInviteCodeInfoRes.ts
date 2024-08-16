@@ -9,4 +9,5 @@ export interface InvitectrlInviteCodeInfoRes {
   group_description: string;
   group_name: string;
   group_owner_nickname: string;
+  nickname_policy: string;
 }

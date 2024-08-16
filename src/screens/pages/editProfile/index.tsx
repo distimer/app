@@ -66,7 +66,7 @@ const EditProfile = () => {
 
   return (
     <Container
-      title="프로필 설정"
+      title="프로필 수정"
       gap={800}
       backable
       scrollable
@@ -86,7 +86,7 @@ const EditProfile = () => {
         <Wrapper
           data={data}
           skeleton={
-            <Skeleton>
+            <Skeleton color={colors.gray[200]}>
               <VStack gap={100}>
                 <SkeletonText width={80} type="title3" weight="semiBold" />
                 <SkeletonText width={160} type="subheadline" weight="medium" />

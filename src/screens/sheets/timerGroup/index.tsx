@@ -14,20 +14,28 @@ import { Wrapper } from "components/layout";
 interface TimerGroupProps {
   sheetRef: React.RefObject<BottomSheetModalMethods>;
   previous?: boolean;
+  initial?: string[];
   onSubmit: (groups: string[]) => void;
 }
 const TimerGroup: React.FC<TimerGroupProps> = ({
   sheetRef,
+  initial = [],
   previous,
   onSubmit,
 }) => {
   const { styles, colors } = useTheme();
 
-  const [groups, setGroups] = React.useState<string[]>([]);
+  const [groups, setGroups] = React.useState(initial);
 
   const { data } = useGetGroup();
 
   const isAllSelected = data?.length === groups.length;
+
+  React.useEffect(() => {
+    setGroups(initial);
+    console.log(initial);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(initial)]);
 
   return (
     <SheetContainer
@@ -37,7 +45,7 @@ const TimerGroup: React.FC<TimerGroupProps> = ({
       fixed
       scrollable
       onDismiss={() => {
-        setGroups([]);
+        setGroups(initial);
       }}
       fixedComponent={
         <TouchableOpacity

@@ -43,7 +43,6 @@ const SheetContainer: React.FC<SheetContainerProps> = ({
       backdropComponent={renderBackdrop}
       enableDynamicSizing={!fixed}
       snapPoints={fixed ? ["80%"] : undefined}
-      // enableContentPanningGesture={!fixed}
       handleComponent={() => null}
       backgroundStyle={[
         styles.radius.top[800],

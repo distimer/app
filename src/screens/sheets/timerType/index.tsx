@@ -15,14 +15,19 @@ import { DatePicker } from "../datePicker";
 type TimerType = "timer" | "manual";
 interface TimerTypeProps {
   sheetRef: React.RefObject<BottomSheetModalMethods>;
-  onSubmit: (type: TimerType, start: Date, end: Date) => void;
+  onSubmit: (type: TimerType) => void;
+  start: DateSharedProps;
+  end: DateSharedProps;
 }
-const TimerType: React.FC<TimerTypeProps> = ({ sheetRef, onSubmit }) => {
+const TimerType: React.FC<TimerTypeProps> = ({
+  sheetRef,
+  start,
+  end,
+  onSubmit,
+}) => {
   const { colors } = useTheme();
 
   const [type, setType] = React.useState<TimerType>("timer");
-  const [startTime, setStartTime] = React.useState<Date>(new Date());
-  const [endTime, setEndTime] = React.useState<Date>(new Date());
 
   return (
     <SheetContainer
@@ -32,13 +37,11 @@ const TimerType: React.FC<TimerTypeProps> = ({ sheetRef, onSubmit }) => {
       button={{
         title: "다음",
         onPress: () => {
-          onSubmit(type, startTime, endTime);
+          onSubmit(type);
         },
       }}
       onDismiss={() => {
         setType("timer");
-        setStartTime(new Date());
-        setEndTime(new Date());
       }}>
       <Item
         title="타이머로 기록하기"
@@ -62,22 +65,14 @@ const TimerType: React.FC<TimerTypeProps> = ({ sheetRef, onSubmit }) => {
               시간
             </Text>
             <HStack align="center" gap={100}>
-              <DateItem
-                disabled={!selected}
-                date={startTime}
-                setDate={setStartTime}
-              />
+              <DateItem disabled={!selected} {...start} />
               <Text
                 type="title3"
                 weight="medium"
                 color={selected ? colors.gray[400] : colors.gray[300]}>
                 ~
               </Text>
-              <DateItem
-                disabled={!selected}
-                date={endTime}
-                setDate={setEndTime}
-              />
+              <DateItem disabled={!selected} {...end} />
             </HStack>
           </HStack>
         )}

@@ -31,7 +31,8 @@ import type {
   GroupctrlGroupDTO,
   GroupctrlJoinReq,
   GroupctrlModifyGroupReq,
-  GroupctrlModifyRoleReq
+  GroupctrlModifyMemberReq,
+  GroupctrlModifyNicknameReq
 } from '../../schemas'
 import { customInstance } from '../../mutator/axios';
 import type { ErrorType, BodyType } from '../../mutator/axios';
@@ -308,6 +309,121 @@ export const usePostGroupJoin = <TError = ErrorType<unknown>,
       return useMutation(mutationOptions);
     }
     /**
+ * @summary Modify Member
+ */
+export const putGroupMemberGroupIDMemberID = (
+    groupID: string,
+    memberID: string,
+    groupctrlModifyMemberReq: BodyType<GroupctrlModifyMemberReq>,
+ options?: SecondParameter<typeof customInstance>,) => {
+      
+      
+      return customInstance<GroupctrlAffiliationDTO>(
+      {url: `/group/member/${groupID}/${memberID}`, method: 'PUT',
+      headers: {'Content-Type': 'application/json', },
+      data: groupctrlModifyMemberReq
+    },
+      options);
+    }
+  
+
+
+export const getPutGroupMemberGroupIDMemberIDMutationOptions = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string;data: BodyType<GroupctrlModifyMemberReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationOptions<Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string;data: BodyType<GroupctrlModifyMemberReq>}, TContext> => {
+const {mutation: mutationOptions, request: requestOptions} = options ?? {};
+
+      
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>, {groupID: string;memberID: string;data: BodyType<GroupctrlModifyMemberReq>}> = (props) => {
+          const {groupID,memberID,data} = props ?? {};
+
+          return  putGroupMemberGroupIDMemberID(groupID,memberID,data,requestOptions)
+        }
+
+        
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PutGroupMemberGroupIDMemberIDMutationResult = NonNullable<Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>>
+    export type PutGroupMemberGroupIDMemberIDMutationBody = BodyType<GroupctrlModifyMemberReq>
+    export type PutGroupMemberGroupIDMemberIDMutationError = ErrorType<void>
+
+    /**
+ * @summary Modify Member
+ */
+export const usePutGroupMemberGroupIDMemberID = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string;data: BodyType<GroupctrlModifyMemberReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationResult<
+        Awaited<ReturnType<typeof putGroupMemberGroupIDMemberID>>,
+        TError,
+        {groupID: string;memberID: string;data: BodyType<GroupctrlModifyMemberReq>},
+        TContext
+      > => {
+
+      const mutationOptions = getPutGroupMemberGroupIDMemberIDMutationOptions(options);
+
+      return useMutation(mutationOptions);
+    }
+    /**
+ * @summary Expel Member
+ */
+export const deleteGroupMemberGroupIDMemberID = (
+    groupID: string,
+    memberID: string,
+ options?: SecondParameter<typeof customInstance>,) => {
+      
+      
+      return customInstance<void>(
+      {url: `/group/member/${groupID}/${memberID}`, method: 'DELETE'
+    },
+      options);
+    }
+  
+
+
+export const getDeleteGroupMemberGroupIDMemberIDMutationOptions = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationOptions<Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string}, TContext> => {
+const {mutation: mutationOptions, request: requestOptions} = options ?? {};
+
+      
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>, {groupID: string;memberID: string}> = (props) => {
+          const {groupID,memberID} = props ?? {};
+
+          return  deleteGroupMemberGroupIDMemberID(groupID,memberID,requestOptions)
+        }
+
+        
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type DeleteGroupMemberGroupIDMemberIDMutationResult = NonNullable<Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>>
+    
+    export type DeleteGroupMemberGroupIDMemberIDMutationError = ErrorType<void>
+
+    /**
+ * @summary Expel Member
+ */
+export const useDeleteGroupMemberGroupIDMemberID = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>, TError,{groupID: string;memberID: string}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationResult<
+        Awaited<ReturnType<typeof deleteGroupMemberGroupIDMemberID>>,
+        TError,
+        {groupID: string;memberID: string},
+        TContext
+      > => {
+
+      const mutationOptions = getDeleteGroupMemberGroupIDMemberIDMutationOptions(options);
+
+      return useMutation(mutationOptions);
+    }
+    /**
  * @summary Get All Group Members
  */
 export const getGroupMemberId = (
@@ -461,6 +577,64 @@ export function useGetGroupMemberId<TData = Awaited<ReturnType<typeof getGroupMe
 
 
 /**
+ * @summary Modify Nickname
+ */
+export const patchGroupNicknameId = (
+    id: string,
+    groupctrlModifyNicknameReq: BodyType<GroupctrlModifyNicknameReq>,
+ options?: SecondParameter<typeof customInstance>,) => {
+      
+      
+      return customInstance<GroupctrlAffiliationDTO>(
+      {url: `/group/nickname/${id}`, method: 'PATCH',
+      headers: {'Content-Type': 'application/json', },
+      data: groupctrlModifyNicknameReq
+    },
+      options);
+    }
+  
+
+
+export const getPatchGroupNicknameIdMutationOptions = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof patchGroupNicknameId>>, TError,{id: string;data: BodyType<GroupctrlModifyNicknameReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationOptions<Awaited<ReturnType<typeof patchGroupNicknameId>>, TError,{id: string;data: BodyType<GroupctrlModifyNicknameReq>}, TContext> => {
+const {mutation: mutationOptions, request: requestOptions} = options ?? {};
+
+      
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof patchGroupNicknameId>>, {id: string;data: BodyType<GroupctrlModifyNicknameReq>}> = (props) => {
+          const {id,data} = props ?? {};
+
+          return  patchGroupNicknameId(id,data,requestOptions)
+        }
+
+        
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PatchGroupNicknameIdMutationResult = NonNullable<Awaited<ReturnType<typeof patchGroupNicknameId>>>
+    export type PatchGroupNicknameIdMutationBody = BodyType<GroupctrlModifyNicknameReq>
+    export type PatchGroupNicknameIdMutationError = ErrorType<void>
+
+    /**
+ * @summary Modify Nickname
+ */
+export const usePatchGroupNicknameId = <TError = ErrorType<void>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof patchGroupNicknameId>>, TError,{id: string;data: BodyType<GroupctrlModifyNicknameReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
+): UseMutationResult<
+        Awaited<ReturnType<typeof patchGroupNicknameId>>,
+        TError,
+        {id: string;data: BodyType<GroupctrlModifyNicknameReq>},
+        TContext
+      > => {
+
+      const mutationOptions = getPatchGroupNicknameIdMutationOptions(options);
+
+      return useMutation(mutationOptions);
+    }
+    /**
  * @summary Quit Group
  */
 export const deleteGroupQuitId = (
@@ -512,64 +686,6 @@ export const useDeleteGroupQuitId = <TError = ErrorType<void>,
       > => {
 
       const mutationOptions = getDeleteGroupQuitIdMutationOptions(options);
-
-      return useMutation(mutationOptions);
-    }
-    /**
- * @summary Modify Role
- */
-export const patchGroupRoleId = (
-    id: string,
-    groupctrlModifyRoleReq: BodyType<GroupctrlModifyRoleReq>,
- options?: SecondParameter<typeof customInstance>,) => {
-      
-      
-      return customInstance<GroupctrlAffiliationDTO>(
-      {url: `/group/role/${id}`, method: 'PATCH',
-      headers: {'Content-Type': 'application/json', },
-      data: groupctrlModifyRoleReq
-    },
-      options);
-    }
-  
-
-
-export const getPatchGroupRoleIdMutationOptions = <TError = ErrorType<void>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof patchGroupRoleId>>, TError,{id: string;data: BodyType<GroupctrlModifyRoleReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
-): UseMutationOptions<Awaited<ReturnType<typeof patchGroupRoleId>>, TError,{id: string;data: BodyType<GroupctrlModifyRoleReq>}, TContext> => {
-const {mutation: mutationOptions, request: requestOptions} = options ?? {};
-
-      
-
-
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof patchGroupRoleId>>, {id: string;data: BodyType<GroupctrlModifyRoleReq>}> = (props) => {
-          const {id,data} = props ?? {};
-
-          return  patchGroupRoleId(id,data,requestOptions)
-        }
-
-        
-
-
-  return  { mutationFn, ...mutationOptions }}
-
-    export type PatchGroupRoleIdMutationResult = NonNullable<Awaited<ReturnType<typeof patchGroupRoleId>>>
-    export type PatchGroupRoleIdMutationBody = BodyType<GroupctrlModifyRoleReq>
-    export type PatchGroupRoleIdMutationError = ErrorType<void>
-
-    /**
- * @summary Modify Role
- */
-export const usePatchGroupRoleId = <TError = ErrorType<void>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof patchGroupRoleId>>, TError,{id: string;data: BodyType<GroupctrlModifyRoleReq>}, TContext>, request?: SecondParameter<typeof customInstance>}
-): UseMutationResult<
-        Awaited<ReturnType<typeof patchGroupRoleId>>,
-        TError,
-        {id: string;data: BodyType<GroupctrlModifyRoleReq>},
-        TContext
-      > => {
-
-      const mutationOptions = getPatchGroupRoleIdMutationOptions(options);
 
       return useMutation(mutationOptions);
     }

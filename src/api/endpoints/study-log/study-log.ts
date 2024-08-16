@@ -26,16 +26,20 @@ import type {
   UseQueryResult
 } from '@tanstack/react-query'
 import type {
-  GetStudylogGroupStatisticsDateIdParams,
+  GetStudylogDateParams,
+  GetStudylogGroupStatisticsTermGroupIdMemberIdParams,
+  GetStudylogGroupTermGroupIdMemberIdParams,
   GetStudylogParams,
   GetStudylogStatisticsDateParams,
   GetStudylogStatisticsTermParams,
   GetStudylogSubjectIdParams,
+  GetStudylogTermParams,
   StudylogctrlCreateStudyLogReq,
   StudylogctrlCreateStudyLogReqBody,
   StudylogctrlDailyStudyLog,
   StudylogctrlDailySubjectLog,
-  StudylogctrlGroupMemberStatisticscResponse,
+  StudylogctrlGroupMemberdailyStudyLog,
+  StudylogctrlGroupStudyLogDTO,
   StudylogctrlMyStudyLogDTO
 } from '../../schemas'
 import { customInstance } from '../../mutator/axios';
@@ -257,90 +261,83 @@ export const usePostStudylog = <TError = ErrorType<void>,
       return useMutation(mutationOptions);
     }
     /**
- * @summary Get Group Member Statistics by Date
+ * @summary Get StudyLog by Date
  */
-export const getStudylogGroupStatisticsDateId = (
-    id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams,
+export const getStudylogDate = (
+    params?: GetStudylogDateParams,
  options?: SecondParameter<typeof customInstance>,signal?: AbortSignal
 ) => {
       
       
-      return customInstance<StudylogctrlGroupMemberStatisticscResponse[]>(
-      {url: `/studylog/group/statistics/date/${id}`, method: 'GET',
+      return customInstance<StudylogctrlMyStudyLogDTO[]>(
+      {url: `/studylog/date`, method: 'GET',
         params, signal
     },
       options);
     }
   
 
-export const getGetStudylogGroupStatisticsDateIdQueryKey = (id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams,) => {
-    return [`/studylog/group/statistics/date/${id}`, ...(params ? [params]: [])] as const;
+export const getGetStudylogDateQueryKey = (params?: GetStudylogDateParams,) => {
+    return [`/studylog/date`, ...(params ? [params]: [])] as const;
     }
 
     
-export const getGetStudylogGroupStatisticsDateIdInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>, TError = ErrorType<void>>(id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export const getGetStudylogDateInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDate>>>, TError = ErrorType<void>>(params?: GetStudylogDateParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupStatisticsDateIdQueryKey(id,params);
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogDateQueryKey(params);
 
   
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>> = ({ signal }) => getStudylogGroupStatisticsDateId(id,params, requestOptions, signal);
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogDate>>> = ({ signal }) => getStudylogDate(params, requestOptions, signal);
 
       
 
       
 
-   return  { queryKey, queryFn, enabled: !!(id), ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData> & { queryKey: QueryKey }
 }
 
-export type GetStudylogGroupStatisticsDateIdInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>
-export type GetStudylogGroupStatisticsDateIdInfiniteQueryError = ErrorType<void>
+export type GetStudylogDateInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogDate>>>
+export type GetStudylogDateInfiniteQueryError = ErrorType<void>
 
 
-export function useGetStudylogGroupStatisticsDateIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>, TError = ErrorType<void>>(
- id: string,
-    params: undefined |  GetStudylogGroupStatisticsDateIdParams, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>> & Pick<
+export function useGetStudylogDateInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDate>>>, TError = ErrorType<void>>(
+ params: undefined |  GetStudylogDateParams, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>,
+          Awaited<ReturnType<typeof getStudylogDate>>,
           TError,
           TData
         > , 'initialData'
       >, request?: SecondParameter<typeof customInstance>}
 
   ):  DefinedUseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetStudylogGroupStatisticsDateIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>> & Pick<
+export function useGetStudylogDateInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDate>>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>,
+          Awaited<ReturnType<typeof getStudylogDate>>,
           TError,
           TData
         > , 'initialData'
       >, request?: SecondParameter<typeof customInstance>}
 
   ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetStudylogGroupStatisticsDateIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export function useGetStudylogDateInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDate>>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 
   ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
 /**
- * @summary Get Group Member Statistics by Date
+ * @summary Get StudyLog by Date
  */
 
-export function useGetStudylogGroupStatisticsDateIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export function useGetStudylogDateInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDate>>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 
   ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } {
 
-  const queryOptions = getGetStudylogGroupStatisticsDateIdInfiniteQueryOptions(id,params,options)
+  const queryOptions = getGetStudylogDateInfiniteQueryOptions(params,options)
 
   const query = useInfiniteQuery(queryOptions) as  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey };
 
@@ -351,67 +348,571 @@ export function useGetStudylogGroupStatisticsDateIdInfinite<TData = InfiniteData
 
 
 
-export const getGetStudylogGroupStatisticsDateIdQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError = ErrorType<void>>(id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export const getGetStudylogDateQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogDate>>, TError = ErrorType<void>>(params?: GetStudylogDateParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupStatisticsDateIdQueryKey(id,params);
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogDateQueryKey(params);
 
   
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>> = ({ signal }) => getStudylogGroupStatisticsDateId(id,params, requestOptions, signal);
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogDate>>> = ({ signal }) => getStudylogDate(params, requestOptions, signal);
 
       
 
       
 
-   return  { queryKey, queryFn, enabled: !!(id), ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData> & { queryKey: QueryKey }
 }
 
-export type GetStudylogGroupStatisticsDateIdQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>>
-export type GetStudylogGroupStatisticsDateIdQueryError = ErrorType<void>
+export type GetStudylogDateQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogDate>>>
+export type GetStudylogDateQueryError = ErrorType<void>
 
 
-export function useGetStudylogGroupStatisticsDateId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError = ErrorType<void>>(
- id: string,
-    params: undefined |  GetStudylogGroupStatisticsDateIdParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>> & Pick<
+export function useGetStudylogDate<TData = Awaited<ReturnType<typeof getStudylogDate>>, TError = ErrorType<void>>(
+ params: undefined |  GetStudylogDateParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>,
+          Awaited<ReturnType<typeof getStudylogDate>>,
           TError,
           TData
         > , 'initialData'
       >, request?: SecondParameter<typeof customInstance>}
 
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetStudylogGroupStatisticsDateId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>> & Pick<
+export function useGetStudylogDate<TData = Awaited<ReturnType<typeof getStudylogDate>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>,
+          Awaited<ReturnType<typeof getStudylogDate>>,
           TError,
           TData
         > , 'initialData'
       >, request?: SecondParameter<typeof customInstance>}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetStudylogGroupStatisticsDateId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export function useGetStudylogDate<TData = Awaited<ReturnType<typeof getStudylogDate>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
 /**
- * @summary Get Group Member Statistics by Date
+ * @summary Get StudyLog by Date
  */
 
-export function useGetStudylogGroupStatisticsDateId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError = ErrorType<void>>(
- id: string,
-    params?: GetStudylogGroupStatisticsDateIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsDateId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+export function useGetStudylogDate<TData = Awaited<ReturnType<typeof getStudylogDate>>, TError = ErrorType<void>>(
+ params?: GetStudylogDateParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDate>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
-  const queryOptions = getGetStudylogGroupStatisticsDateIdQueryOptions(id,params,options)
+  const queryOptions = getGetStudylogDateQueryOptions(params,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+/**
+ * @summary Get StudyLog Detail by ID
+ */
+export const getStudylogDetailId = (
+    id: string,
+ options?: SecondParameter<typeof customInstance>,signal?: AbortSignal
+) => {
+      
+      
+      return customInstance<StudylogctrlMyStudyLogDTO>(
+      {url: `/studylog/detail/${id}`, method: 'GET', signal
+    },
+      options);
+    }
+  
+
+export const getGetStudylogDetailIdQueryKey = (id: string,) => {
+    return [`/studylog/detail/${id}`] as const;
+    }
+
+    
+export const getGetStudylogDetailIdInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDetailId>>>, TError = ErrorType<void>>(id: string, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogDetailIdQueryKey(id);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogDetailId>>> = ({ signal }) => getStudylogDetailId(id, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(id), ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogDetailIdInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogDetailId>>>
+export type GetStudylogDetailIdInfiniteQueryError = ErrorType<void>
+
+
+export function useGetStudylogDetailIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDetailId>>>, TError = ErrorType<void>>(
+ id: string, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogDetailId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogDetailIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDetailId>>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogDetailId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogDetailIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDetailId>>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLog Detail by ID
+ */
+
+export function useGetStudylogDetailIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogDetailId>>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogDetailIdInfiniteQueryOptions(id,options)
+
+  const query = useInfiniteQuery(queryOptions) as  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+export const getGetStudylogDetailIdQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogDetailId>>, TError = ErrorType<void>>(id: string, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogDetailIdQueryKey(id);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogDetailId>>> = ({ signal }) => getStudylogDetailId(id, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(id), ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogDetailIdQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogDetailId>>>
+export type GetStudylogDetailIdQueryError = ErrorType<void>
+
+
+export function useGetStudylogDetailId<TData = Awaited<ReturnType<typeof getStudylogDetailId>>, TError = ErrorType<void>>(
+ id: string, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogDetailId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogDetailId<TData = Awaited<ReturnType<typeof getStudylogDetailId>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogDetailId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogDetailId<TData = Awaited<ReturnType<typeof getStudylogDetailId>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLog Detail by ID
+ */
+
+export function useGetStudylogDetailId<TData = Awaited<ReturnType<typeof getStudylogDetailId>>, TError = ErrorType<void>>(
+ id: string, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogDetailId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogDetailIdQueryOptions(id,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+/**
+ * @summary Get Statistics with Term
+ */
+export const getStudylogGroupStatisticsTermGroupIdMemberId = (
+    groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams,
+ options?: SecondParameter<typeof customInstance>,signal?: AbortSignal
+) => {
+      
+      
+      return customInstance<StudylogctrlGroupMemberdailyStudyLog[]>(
+      {url: `/studylog/group/statistics/term/${groupId}/${memberId}`, method: 'GET',
+        params, signal
+    },
+      options);
+    }
+  
+
+export const getGetStudylogGroupStatisticsTermGroupIdMemberIdQueryKey = (groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams,) => {
+    return [`/studylog/group/statistics/term/${groupId}/${memberId}`, ...(params ? [params]: [])] as const;
+    }
+
+    
+export const getGetStudylogGroupStatisticsTermGroupIdMemberIdInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>, TError = ErrorType<void>>(groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupStatisticsTermGroupIdMemberIdQueryKey(groupId,memberId,params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>> = ({ signal }) => getStudylogGroupStatisticsTermGroupIdMemberId(groupId,memberId,params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(groupId && memberId), ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogGroupStatisticsTermGroupIdMemberIdInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>
+export type GetStudylogGroupStatisticsTermGroupIdMemberIdInfiniteQueryError = ErrorType<void>
+
+
+export function useGetStudylogGroupStatisticsTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupStatisticsTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupStatisticsTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get Statistics with Term
+ */
+
+export function useGetStudylogGroupStatisticsTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogGroupStatisticsTermGroupIdMemberIdInfiniteQueryOptions(groupId,memberId,params,options)
+
+  const query = useInfiniteQuery(queryOptions) as  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+export const getGetStudylogGroupStatisticsTermGroupIdMemberIdQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError = ErrorType<void>>(groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupStatisticsTermGroupIdMemberIdQueryKey(groupId,memberId,params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>> = ({ signal }) => getStudylogGroupStatisticsTermGroupIdMemberId(groupId,memberId,params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(groupId && memberId), ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogGroupStatisticsTermGroupIdMemberIdQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>>
+export type GetStudylogGroupStatisticsTermGroupIdMemberIdQueryError = ErrorType<void>
+
+
+export function useGetStudylogGroupStatisticsTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupStatisticsTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupStatisticsTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get Statistics with Term
+ */
+
+export function useGetStudylogGroupStatisticsTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupStatisticsTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupStatisticsTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogGroupStatisticsTermGroupIdMemberIdQueryOptions(groupId,memberId,params,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+/**
+ * @summary Get StudyLogs with Term with Group
+ */
+export const getStudylogGroupTermGroupIdMemberId = (
+    groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams,
+ options?: SecondParameter<typeof customInstance>,signal?: AbortSignal
+) => {
+      
+      
+      return customInstance<StudylogctrlGroupStudyLogDTO[]>(
+      {url: `/studylog/group/term/${groupId}/${memberId}`, method: 'GET',
+        params, signal
+    },
+      options);
+    }
+  
+
+export const getGetStudylogGroupTermGroupIdMemberIdQueryKey = (groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams,) => {
+    return [`/studylog/group/term/${groupId}/${memberId}`, ...(params ? [params]: [])] as const;
+    }
+
+    
+export const getGetStudylogGroupTermGroupIdMemberIdInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>, TError = ErrorType<void>>(groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupTermGroupIdMemberIdQueryKey(groupId,memberId,params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>> = ({ signal }) => getStudylogGroupTermGroupIdMemberId(groupId,memberId,params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(groupId && memberId), ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogGroupTermGroupIdMemberIdInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>
+export type GetStudylogGroupTermGroupIdMemberIdInfiniteQueryError = ErrorType<void>
+
+
+export function useGetStudylogGroupTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLogs with Term with Group
+ */
+
+export function useGetStudylogGroupTermGroupIdMemberIdInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogGroupTermGroupIdMemberIdInfiniteQueryOptions(groupId,memberId,params,options)
+
+  const query = useInfiniteQuery(queryOptions) as  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+export const getGetStudylogGroupTermGroupIdMemberIdQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError = ErrorType<void>>(groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogGroupTermGroupIdMemberIdQueryKey(groupId,memberId,params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>> = ({ signal }) => getStudylogGroupTermGroupIdMemberId(groupId,memberId,params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, enabled: !!(groupId && memberId), ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogGroupTermGroupIdMemberIdQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>>
+export type GetStudylogGroupTermGroupIdMemberIdQueryError = ErrorType<void>
+
+
+export function useGetStudylogGroupTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogGroupTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLogs with Term with Group
+ */
+
+export function useGetStudylogGroupTermGroupIdMemberId<TData = Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError = ErrorType<void>>(
+ groupId: string,
+    memberId: string,
+    params: GetStudylogGroupTermGroupIdMemberIdParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogGroupTermGroupIdMemberId>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogGroupTermGroupIdMemberIdQueryOptions(groupId,memberId,params,options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 
@@ -886,6 +1387,160 @@ export function useGetStudylogSubjectId<TData = Awaited<ReturnType<typeof getStu
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
   const queryOptions = getGetStudylogSubjectIdQueryOptions(id,params,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+/**
+ * @summary Get StudyLogs with Term
+ */
+export const getStudylogTerm = (
+    params: GetStudylogTermParams,
+ options?: SecondParameter<typeof customInstance>,signal?: AbortSignal
+) => {
+      
+      
+      return customInstance<StudylogctrlMyStudyLogDTO[]>(
+      {url: `/studylog/term`, method: 'GET',
+        params, signal
+    },
+      options);
+    }
+  
+
+export const getGetStudylogTermQueryKey = (params: GetStudylogTermParams,) => {
+    return [`/studylog/term`, ...(params ? [params]: [])] as const;
+    }
+
+    
+export const getGetStudylogTermInfiniteQueryOptions = <TData = InfiniteData<Awaited<ReturnType<typeof getStudylogTerm>>>, TError = ErrorType<void>>(params: GetStudylogTermParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogTermQueryKey(params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogTerm>>> = ({ signal }) => getStudylogTerm(params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, ...queryOptions} as UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogTermInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogTerm>>>
+export type GetStudylogTermInfiniteQueryError = ErrorType<void>
+
+
+export function useGetStudylogTermInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogTerm>>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options: { query:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogTerm>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogTermInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogTerm>>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogTerm>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogTermInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogTerm>>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLogs with Term
+ */
+
+export function useGetStudylogTermInfinite<TData = InfiniteData<Awaited<ReturnType<typeof getStudylogTerm>>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseInfiniteQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogTermInfiniteQueryOptions(params,options)
+
+  const query = useInfiniteQuery(queryOptions) as  UseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey ;
+
+  return query;
+}
+
+
+
+export const getGetStudylogTermQueryOptions = <TData = Awaited<ReturnType<typeof getStudylogTerm>>, TError = ErrorType<void>>(params: GetStudylogTermParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudylogTermQueryKey(params);
+
+  
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudylogTerm>>> = ({ signal }) => getStudylogTerm(params, requestOptions, signal);
+
+      
+
+      
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudylogTermQueryResult = NonNullable<Awaited<ReturnType<typeof getStudylogTerm>>>
+export type GetStudylogTermQueryError = ErrorType<void>
+
+
+export function useGetStudylogTerm<TData = Awaited<ReturnType<typeof getStudylogTerm>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogTerm>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogTerm<TData = Awaited<ReturnType<typeof getStudylogTerm>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getStudylogTerm>>,
+          TError,
+          TData
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetStudylogTerm<TData = Awaited<ReturnType<typeof getStudylogTerm>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
+/**
+ * @summary Get StudyLogs with Term
+ */
+
+export function useGetStudylogTerm<TData = Awaited<ReturnType<typeof getStudylogTerm>>, TError = ErrorType<void>>(
+ params: GetStudylogTermParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getStudylogTerm>>, TError, TData>>, request?: SecondParameter<typeof customInstance>}
+
+  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudylogTermQueryOptions(params,options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

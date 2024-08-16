@@ -21,7 +21,7 @@ import { useTheme } from "contexts/theme";
 import { Empty, HStack, PhosphorIcon, Text, VStack } from "components/common";
 import { Container, Wrapper } from "components/layout";
 
-import { InviteCode, JoinGroup } from "screens/sheets";
+import { InviteCode, JoinGroup, Nickname } from "screens/sheets";
 
 const Group: React.FC = () => {
   const navigation = useMainNavigation();
@@ -34,6 +34,7 @@ const Group: React.FC = () => {
 
   const codeSheetRef = React.useRef<BottomSheetModal>(null);
   const joinSheetRef = React.useRef<BottomSheetModal>(null);
+  const nicknameSheetRef = React.useRef<BottomSheetModal>(null);
 
   const [inviteInfo, setInviteInfo] = React.useState<InviteInfo>(
     {} as InviteInfo,
@@ -58,6 +59,7 @@ const Group: React.FC = () => {
         name: response.group_name,
         description: response.group_description,
         owner: response.group_owner_nickname,
+        rule: response.nickname_policy,
       });
       joinSheetRef.current?.present();
     } finally {
@@ -65,11 +67,12 @@ const Group: React.FC = () => {
     }
   };
 
-  const join = async (code: string) => {
+  const join = async (nickname: string) => {
     startLoading();
     try {
       await postGroupJoin({
-        invite_code: code,
+        invite_code: inviteInfo.code,
+        nickname,
       });
       await refetch();
       dismissAll();
@@ -147,7 +150,18 @@ const Group: React.FC = () => {
         )}
       </Wrapper>
       <InviteCode sheetRef={codeSheetRef} onSubmit={invite} />
-      <JoinGroup sheetRef={joinSheetRef} info={inviteInfo} onSubmit={join} />
+      <JoinGroup
+        sheetRef={joinSheetRef}
+        info={inviteInfo}
+        onSubmit={() => {
+          nicknameSheetRef.current?.present();
+        }}
+      />
+      <Nickname
+        sheetRef={nicknameSheetRef}
+        rule={inviteInfo.rule}
+        onSubmit={join}
+      />
     </Container>
   );
 };

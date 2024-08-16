@@ -86,7 +86,7 @@ const CreateGroup = () => {
       />
       <InputItem
         title="닉네임"
-        icon="IdentificationCard"
+        icon="IdentificationBadge"
         range={{
           min: 1,
           max: 20,

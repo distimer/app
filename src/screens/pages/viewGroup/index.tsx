@@ -125,10 +125,7 @@ const ViewGroup = () => {
               </VStack>
               <VStack gap={200}>
                 <HStack align="center" gap={200}>
-                  <PhosphorIcon
-                    name="IdentificationCard"
-                    color={colors.gray[400]}
-                  />
+                  <PhosphorIcon name="Sword" color={colors.gray[400]} />
                   <Text
                     type="subheadline"
                     weight="medium"
@@ -148,16 +145,41 @@ const ViewGroup = () => {
               </VStack>
             </VStack>
             <VStack gap={300}>
-              <Item icon="User">내가 공유한 학습기록</Item>
               <Item
-                icon="UsersThree"
-                disabled={data.user.role < data.group.reveal_policy}>
-                그룹원 개별 기록 보기
+                icon="User"
+                onPress={() => {
+                  navigation.navigate("PagesStack", {
+                    screen: "EditGroupProfile",
+                    params: {
+                      id: data.group.id,
+                    },
+                  });
+                }}>
+                그룹 프로필 수정
               </Item>
               <Item
-                icon="ChartBar"
-                disabled={data.user.role < data.group.reveal_policy}>
-                그룹 전체 학습 통계 보기
+                icon="ShareNetwork"
+                onPress={() => {
+                  navigation.navigate("PagesStack", {
+                    screen: "MyStudylogs",
+                    params: {
+                      group: data.group.id,
+                    },
+                  });
+                }}>
+                내가 공유한 학습기록
+              </Item>
+              <Item
+                icon="UsersThree"
+                onPress={() => {
+                  navigation.navigate("PagesStack", {
+                    screen: "ListUser",
+                    params: {
+                      id: data.group.id,
+                    },
+                  });
+                }}>
+                그룹원
               </Item>
               <Item
                 icon="EnvelopeSimpleOpen"
@@ -225,7 +247,6 @@ const Item: React.FC<ItemProps> = ({ children, icon, disabled, onPress }) => {
         ]}>
         <PhosphorIcon
           name={disabled ? "Lock" : icon}
-          size={20}
           color={disabled ? colors.gray[400] : colors.gray[700]}
         />
         <Text

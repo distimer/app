@@ -5,9 +5,13 @@
  * OpenAPI spec version: 1.0
  */
 
-export type GetStudylogGroupStatisticsDateIdParams = {
+export type GetStudylogGroupStatisticsTermGroupIdMemberIdParams = {
 /**
  * 2006-01-02
  */
-date?: string;
+start_date: string;
+/**
+ * 2006-01-03
+ */
+end_date: string;
 };

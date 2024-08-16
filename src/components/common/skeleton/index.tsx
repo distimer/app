@@ -7,8 +7,9 @@ import MaskedView from "@react-native-masked-view/masked-view";
 
 interface SkeletonProps {
   children: React.ReactElement;
+  color: string;
 }
-const Skeleton: React.FC<SkeletonProps> = ({ children }) => {
+const Skeleton: React.FC<SkeletonProps> = ({ children, color }) => {
   const [layout, setLayout] = React.useState<LayoutRectangle>();
 
   if (!layout?.width || !layout.height)
@@ -26,7 +27,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ children }) => {
     <MaskedView
       style={{ height: layout.height, width: layout.width }}
       maskElement={children}>
-      <View style={{ flex: 1, backgroundColor: "red" }} />
+      <View style={{ flex: 1, backgroundColor: color }} />
     </MaskedView>
   );
 };

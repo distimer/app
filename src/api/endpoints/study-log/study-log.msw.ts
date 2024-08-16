@@ -16,7 +16,8 @@ import type {
   StudylogctrlCreateStudyLogReq,
   StudylogctrlDailyStudyLog,
   StudylogctrlDailySubjectLog,
-  StudylogctrlGroupMemberStatisticscResponse,
+  StudylogctrlGroupMemberdailyStudyLog,
+  StudylogctrlGroupStudyLogDTO,
   StudylogctrlMyStudyLogDTO
 } from '../../schemas'
 
@@ -24,13 +25,21 @@ export const getGetStudylogResponseMock = (): StudylogctrlMyStudyLogDTO[] => (Ar
 
 export const getPostStudylogResponseMock = (overrideResponse: Partial< StudylogctrlMyStudyLogDTO > = {}): StudylogctrlMyStudyLogDTO => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), id: faker.word.sample(), start_at: faker.word.sample(), subject_id: faker.word.sample(), ...overrideResponse})
 
-export const getGetStudylogGroupStatisticsDateIdResponseMock = (): StudylogctrlGroupMemberStatisticscResponse[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({log: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({study_time: faker.number.int({min: undefined, max: undefined}), subject: {color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})}})), user_id: faker.word.sample()})))
+export const getGetStudylogDateResponseMock = (): StudylogctrlMyStudyLogDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), id: faker.word.sample(), start_at: faker.word.sample(), subject_id: faker.word.sample()})))
 
-export const getGetStudylogStatisticsDateResponseMock = (): StudylogctrlDailySubjectLog[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.helpers.arrayElement([faker.word.sample(), undefined]), study_time: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined}), undefined]), subject_id: faker.helpers.arrayElement([faker.word.sample(), undefined])})))
+export const getGetStudylogDetailIdResponseMock = (overrideResponse: Partial< StudylogctrlMyStudyLogDTO > = {}): StudylogctrlMyStudyLogDTO => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), id: faker.word.sample(), start_at: faker.word.sample(), subject_id: faker.word.sample(), ...overrideResponse})
 
-export const getGetStudylogStatisticsTermResponseMock = (): StudylogctrlDailyStudyLog[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({date: faker.helpers.arrayElement([faker.word.sample(), undefined]), log: faker.helpers.arrayElement([Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.helpers.arrayElement([faker.word.sample(), undefined]), study_time: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined}), undefined]), subject_id: faker.helpers.arrayElement([faker.word.sample(), undefined])})), undefined])})))
+export const getGetStudylogGroupStatisticsTermGroupIdMemberIdResponseMock = (): StudylogctrlGroupMemberdailyStudyLog[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({date: faker.word.sample(), log: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.word.sample(), category_name: faker.word.sample(), study_time: faker.number.int({min: undefined, max: undefined}), subject: {color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})}}))})))
+
+export const getGetStudylogGroupTermGroupIdMemberIdResponseMock = (): StudylogctrlGroupStudyLogDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.word.sample(), category_name: faker.word.sample(), content: faker.word.sample(), end_at: faker.word.sample(), id: faker.word.sample(), start_at: faker.word.sample(), subject: {color: faker.word.sample(), id: faker.word.sample(), name: faker.word.sample(), order: faker.number.int({min: 0, max: undefined})}})))
+
+export const getGetStudylogStatisticsDateResponseMock = (): StudylogctrlDailySubjectLog[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.word.sample(), study_time: faker.number.int({min: undefined, max: undefined}), subject_id: faker.word.sample()})))
+
+export const getGetStudylogStatisticsTermResponseMock = (): StudylogctrlDailyStudyLog[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({date: faker.word.sample(), log: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({category_id: faker.word.sample(), study_time: faker.number.int({min: undefined, max: undefined}), subject_id: faker.word.sample()}))})))
 
 export const getGetStudylogSubjectIdResponseMock = (): StudylogctrlMyStudyLogDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), id: faker.word.sample(), start_at: faker.word.sample(), subject_id: faker.word.sample()})))
+
+export const getGetStudylogTermResponseMock = (): StudylogctrlMyStudyLogDTO[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), id: faker.word.sample(), start_at: faker.word.sample(), subject_id: faker.word.sample()})))
 
 export const getPutStudylogIdResponseMock = (overrideResponse: Partial< StudylogctrlCreateStudyLogReq > = {}): StudylogctrlCreateStudyLogReq => ({content: faker.word.sample(), end_at: faker.word.sample(), groups_to_share: Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.word.sample())), start_at: faker.word.sample(), subject_id: faker.word.sample(), ...overrideResponse})
 
@@ -59,12 +68,48 @@ export const getPostStudylogMockHandler = (overrideResponse?: StudylogctrlMyStud
   })
 }
 
-export const getGetStudylogGroupStatisticsDateIdMockHandler = (overrideResponse?: StudylogctrlGroupMemberStatisticscResponse[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlGroupMemberStatisticscResponse[]> | StudylogctrlGroupMemberStatisticscResponse[])) => {
-  return http.get('*/studylog/group/statistics/date/:id', async (info) => {await delay(1000);
+export const getGetStudylogDateMockHandler = (overrideResponse?: StudylogctrlMyStudyLogDTO[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlMyStudyLogDTO[]> | StudylogctrlMyStudyLogDTO[])) => {
+  return http.get('*/studylog/date', async (info) => {await delay(1000);
   
     return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
             ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
-            : getGetStudylogGroupStatisticsDateIdResponseMock()),
+            : getGetStudylogDateResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
+export const getGetStudylogDetailIdMockHandler = (overrideResponse?: StudylogctrlMyStudyLogDTO | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlMyStudyLogDTO> | StudylogctrlMyStudyLogDTO)) => {
+  return http.get('*/studylog/detail/:id', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getGetStudylogDetailIdResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
+export const getGetStudylogGroupStatisticsTermGroupIdMemberIdMockHandler = (overrideResponse?: StudylogctrlGroupMemberdailyStudyLog[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlGroupMemberdailyStudyLog[]> | StudylogctrlGroupMemberdailyStudyLog[])) => {
+  return http.get('*/studylog/group/statistics/term/:groupId/:memberId', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getGetStudylogGroupStatisticsTermGroupIdMemberIdResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
+export const getGetStudylogGroupTermGroupIdMemberIdMockHandler = (overrideResponse?: StudylogctrlGroupStudyLogDTO[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlGroupStudyLogDTO[]> | StudylogctrlGroupStudyLogDTO[])) => {
+  return http.get('*/studylog/group/term/:groupId/:memberId', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getGetStudylogGroupTermGroupIdMemberIdResponseMock()),
       { status: 200,
         headers: { 'Content-Type': 'application/json' }
       })
@@ -107,6 +152,18 @@ export const getGetStudylogSubjectIdMockHandler = (overrideResponse?: Studylogct
   })
 }
 
+export const getGetStudylogTermMockHandler = (overrideResponse?: StudylogctrlMyStudyLogDTO[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<StudylogctrlMyStudyLogDTO[]> | StudylogctrlMyStudyLogDTO[])) => {
+  return http.get('*/studylog/term', async (info) => {await delay(1000);
+  
+    return new HttpResponse(JSON.stringify(overrideResponse !== undefined 
+            ? (typeof overrideResponse === "function" ? await overrideResponse(info) : overrideResponse) 
+            : getGetStudylogTermResponseMock()),
+      { status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      })
+  })
+}
+
 export const getPutStudylogIdMockHandler = (overrideResponse?: StudylogctrlCreateStudyLogReq | ((info: Parameters<Parameters<typeof http.put>[1]>[0]) => Promise<StudylogctrlCreateStudyLogReq> | StudylogctrlCreateStudyLogReq)) => {
   return http.put('*/studylog/:id', async (info) => {await delay(1000);
   
@@ -131,10 +188,14 @@ export const getDeleteStudylogIdMockHandler = (overrideResponse?: void | ((info:
 export const getStudyLogMock = () => [
   getGetStudylogMockHandler(),
   getPostStudylogMockHandler(),
-  getGetStudylogGroupStatisticsDateIdMockHandler(),
+  getGetStudylogDateMockHandler(),
+  getGetStudylogDetailIdMockHandler(),
+  getGetStudylogGroupStatisticsTermGroupIdMemberIdMockHandler(),
+  getGetStudylogGroupTermGroupIdMemberIdMockHandler(),
   getGetStudylogStatisticsDateMockHandler(),
   getGetStudylogStatisticsTermMockHandler(),
   getGetStudylogSubjectIdMockHandler(),
+  getGetStudylogTermMockHandler(),
   getPutStudylogIdMockHandler(),
   getDeleteStudylogIdMockHandler()
 ]

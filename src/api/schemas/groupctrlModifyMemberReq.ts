@@ -5,11 +5,11 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface GroupctrlModifyRoleReq {
+export interface GroupctrlModifyMemberReq {
+  nickname: string;
   /**
    * @minimum 0
    * @maximum 1
    */
   role: number;
-  user_id: string;
 }

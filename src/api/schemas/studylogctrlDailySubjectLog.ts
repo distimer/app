@@ -6,7 +6,7 @@
  */
 
 export interface StudylogctrlDailySubjectLog {
-  category_id?: string;
-  study_time?: number;
-  subject_id?: string;
+  category_id: string;
+  study_time: number;
+  subject_id: string;
 }

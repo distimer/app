@@ -28,14 +28,14 @@ const SmallButton: React.FC<SmallButtonProps> = ({
         style={[
           size === "big"
             ? [
+                styles.padding.vertical[200],
                 styles.padding.horizontal[400],
                 styles.radius.all[300],
-                styles.$height(38),
               ]
             : [
-                styles.padding.horizontal[250],
+                styles.padding.vertical[100],
+                styles.padding.horizontal[200],
                 styles.radius.all[250],
-                styles.$height(28),
               ],
           selected && styles.$background(colors.gray[500]),
           selected
