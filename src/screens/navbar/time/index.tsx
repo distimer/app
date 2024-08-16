@@ -1,5 +1,5 @@
 import React from "react";
-import { Keyboard } from "react-native";
+import { Keyboard, TouchableOpacity } from "react-native";
 
 import {
   type BottomSheetModal,
@@ -42,7 +42,7 @@ import {
 const Time: React.FC = () => {
   const navigation = useMainNavigation();
 
-  const { colors } = useTheme();
+  const { colors, values } = useTheme();
   const { startLoading, endLoading } = useLoading();
   const { dismissAll } = useBottomSheetModal();
 
@@ -261,19 +261,27 @@ const Time: React.FC = () => {
                     )}
                   </Text>
                 </VStack>
-                <HStack align="center" gap={100}>
-                  <Text
-                    type="subheadline"
-                    weight="semiBold"
-                    color={colors.gray[700]}>
-                    학습기록 보기
-                  </Text>
-                  <PhosphorIcon
-                    name="ArrowRight"
-                    size={20}
-                    color={colors.gray[700]}
-                  />
-                </HStack>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("PagesStack", {
+                      screen: "MyStudylogs",
+                    });
+                  }}
+                  hitSlop={values[400]}>
+                  <HStack align="center" gap={100}>
+                    <Text
+                      type="subheadline"
+                      weight="semiBold"
+                      color={colors.gray[700]}>
+                      학습기록 보기
+                    </Text>
+                    <PhosphorIcon
+                      name="ArrowRight"
+                      size={20}
+                      color={colors.gray[700]}
+                    />
+                  </HStack>
+                </TouchableOpacity>
               </VStack>
               <Button
                 onPress={() => {
