@@ -5,9 +5,11 @@ import type { PagesStackParamList } from "navigations/pages";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import Toast from "react-native-toast-message";
 
 import Clipboard from "@react-native-clipboard/clipboard";
 import { useRoute } from "@react-navigation/native";
+import moment from "moment";
 
 import {
   deleteInviteGroupIdCode,
@@ -108,6 +110,13 @@ const InviteGroup = () => {
                 <TouchableOpacity
                   onPress={() => {
                     Clipboard.setString(item);
+                    Toast.show({
+                      type: "success",
+                      props: {
+                        message: "클립보드에 복사되었어요.",
+                        now: moment().unix(),
+                      },
+                    });
                   }}>
                   <HStack
                     align="center"

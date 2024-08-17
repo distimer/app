@@ -236,7 +236,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (existsError(message)) {
         Toast.show({
           type: "error",
-          props: { message: errors[message] },
+          props: { message: errors[message], now: moment().unix() },
         });
       }
 

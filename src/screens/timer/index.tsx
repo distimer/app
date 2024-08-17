@@ -55,7 +55,7 @@ const Timer = () => {
         start_at: timer.start_at,
         end_at: moment().toISOString(),
         subject_id: timer.subject_id,
-        groups_to_share: [],
+        groups_to_share: timer.shared_group_ids,
         content: timer.content,
       });
       await refetchStudylog();
@@ -82,7 +82,7 @@ const Timer = () => {
       await putTimer({
         content: content || timer.content,
         subject_id: subject || timer.subject_id,
-        shared_group_ids: [],
+        shared_group_ids: timer.shared_group_ids,
       });
       await refetch();
     } finally {

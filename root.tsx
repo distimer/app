@@ -52,6 +52,6 @@ let Root = () => {
 
 Root = codePush({
   checkFrequency: codePush.CheckFrequency.ON_APP_START,
-  installMode: codePush.InstallMode.IMMEDIATE,
+  installMode: codePush.InstallMode.ON_NEXT_RESTART,
 })(Root);
 export { Root };

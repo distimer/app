@@ -1,6 +1,7 @@
+import type { ToastConfigParams } from "react-native-toast-message";
+
 import React from "react";
 import BootSplash from "react-native-bootsplash";
-import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import ToastContainer from "react-native-toast-message";
 
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
@@ -15,13 +16,13 @@ import { Toast } from "components/common";
 const App = () => {
   const { colors, insets } = useTheme();
 
-  const renderErrorToast = ({
-    props,
-  }: {
-    props: {
-      message: string;
-    };
-  }) => <Toast {...props} />;
+  const renderToast = ({
+    type,
+    props: { message, now },
+  }: ToastConfigParams<{
+    message: string;
+    now: number;
+  }>) => <Toast type={type} message={message} now={now} />;
 
   return (
     <>
@@ -46,13 +47,8 @@ const App = () => {
         visibilityTime={3000}
         topOffset={insets.top}
         config={{
-          error: renderErrorToast,
-        }}
-        onShow={() => {
-          ReactNativeHapticFeedback.trigger("notificationError", {
-            enableVibrateFallback: true,
-            ignoreAndroidSystemSettings: false,
-          });
+          success: renderToast,
+          error: renderToast,
         }}
       />
     </>
