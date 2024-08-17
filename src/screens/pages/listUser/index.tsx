@@ -68,13 +68,13 @@ const ListUser = () => {
     navigation.goBack();
   }, [members, navigation, profile]);
   const studying = React.useMemo(() => {
-    if (members === undefined || timers === undefined) return undefined;
+    if (members === undefined) return undefined;
 
     const result: {
       [key: string]: boolean;
     } = {};
     for (const member of members) {
-      const timer = timers.find(
+      const timer = timers?.find(
         (timer) => timer.affiliation.user_id === member.user_id,
       );
       result[member.user_id] = timer !== undefined;
