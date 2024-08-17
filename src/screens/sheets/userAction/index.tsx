@@ -113,7 +113,7 @@ const UserAction: React.FC<UserActionProps> = ({
         onPress={() => {
           sheetRef.current?.dismiss();
           navigation.navigate("PagesStack", {
-            screen: "OtherStudylogs",
+            screen: "Statistics",
             params: {
               group: group,
               user: user.id,
@@ -128,7 +128,7 @@ const UserAction: React.FC<UserActionProps> = ({
         onPress={() => {
           sheetRef.current?.dismiss();
           navigation.navigate("PagesStack", {
-            screen: "OtherStudylogs",
+            screen: "EditUser",
             params: {
               group: group,
               user: user.id,
