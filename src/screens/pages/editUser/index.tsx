@@ -33,8 +33,11 @@ const EditUser = () => {
 
   const user = React.useMemo(() => {
     if (!data) return undefined;
-    return data.find((member) => member.user_id === params.user);
-  }, [data, params.user]);
+
+    const user = data.find((member) => member.user_id === params.user);
+    if (user) return user;
+    navigation.goBack();
+  }, [data, navigation, params.user]);
 
   const [nickname, setNickname] = React.useState("");
   const [pass, setPass] = React.useState(false);

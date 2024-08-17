@@ -47,13 +47,11 @@ const EditSubject = () => {
       .find((subject) => subject.id === params.id);
   }, [data, params.id]);
 
-  console.log(categoryData);
-  console.log(subjectData);
-
   const [name, setName] = React.useState("");
   const [pass, setPass] = React.useState(false);
   const [category, setCategory] = React.useState("");
   const [color, setColor] = React.useState("");
+
   const tempCategoryName = React.useMemo(() => {
     if (!data) return "";
     return data.find((item) => item.id === category)?.name || "";

@@ -6,6 +6,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
+import Clipboard from "@react-native-clipboard/clipboard";
 import { useRoute } from "@react-navigation/native";
 
 import {
@@ -25,10 +26,10 @@ import { Confirm } from "screens/sheets";
 const InviteGroup = () => {
   const { params } = useRoute<RouteProp<PagesStackParamList, "InviteGroup">>();
 
-  const sheetRef = React.useRef<BottomSheetModal>(null);
-
-  const { styles, colors } = useTheme();
+  const { styles, colors, values } = useTheme();
   const { startLoading, endLoading } = useLoading();
+
+  const sheetRef = React.useRef<BottomSheetModal>(null);
 
   const { data, refetch, isRefetching } = useGetInviteGroupId(params.id);
 
@@ -58,7 +59,7 @@ const InviteGroup = () => {
   const [refreshing, setRefreshing] = React.useState(false);
   React.useEffect(() => {
     if (isRefetching) return;
-    setRefreshing(isRefetching);
+    setRefreshing(false);
   }, [isRefetching]);
   const onRefresh = async () => {
     setRefreshing(true);
@@ -106,8 +107,7 @@ const InviteGroup = () => {
               renderItem={({ item }) => (
                 <TouchableOpacity
                   onPress={() => {
-                    setRemoveQue(item);
-                    sheetRef.current?.present();
+                    Clipboard.setString(item);
                   }}>
                   <HStack
                     align="center"
@@ -131,11 +131,18 @@ const InviteGroup = () => {
                         {item}
                       </Text>
                     </HStack>
-                    <PhosphorIcon
-                      name="Trash"
-                      size={20}
-                      color={colors.gray[400]}
-                    />
+                    <TouchableOpacity
+                      hitSlop={values[400]}
+                      onPress={() => {
+                        setRemoveQue(item);
+                        sheetRef.current?.present();
+                      }}>
+                      <PhosphorIcon
+                        name="Trash"
+                        size={20}
+                        color={colors.gray[400]}
+                      />
+                    </TouchableOpacity>
                   </HStack>
                 </TouchableOpacity>
               )}

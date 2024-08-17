@@ -46,19 +46,25 @@ const ViewGroup = () => {
   } = useGetGroupMemberId(params.id);
   const { data: user } = useGetUser();
 
-  const groupData = React.useMemo(() => {
+  const group = React.useMemo(() => {
     if (!groups) return undefined;
-    return groups.find((group) => group.id === params.id);
-  }, [groups, params.id]);
-  const userData = React.useMemo(() => {
+
+    const data = groups.find((group) => group.id === params.id);
+    if (data) return data;
+    navigation.goBack();
+  }, [groups, navigation, params.id]);
+  const me = React.useMemo(() => {
     if (!members || !user) return undefined;
-    return members.find((member) => member.user_id === user.user_id);
-  }, [members, user]);
+
+    const data = members.find((member) => member.user_id === user.user_id);
+    if (data) return data;
+    navigation.goBack();
+  }, [members, navigation, user]);
 
   const [refreshing, setRefreshing] = React.useState(false);
   React.useEffect(() => {
     if (isRefetchingGroups || isRefetchingMembers) return;
-    setRefreshing(isRefetchingGroups || isRefetchingMembers);
+    setRefreshing(false);
   }, [isRefetchingGroups, isRefetchingMembers]);
   const onRefresh = async () => {
     setRefreshing(true);
@@ -66,10 +72,10 @@ const ViewGroup = () => {
     await refetchMembers();
   };
 
-  const isLoaded = groupData && members && userData;
+  const isLoaded = group && members && me;
 
   const quit = async () => {
-    if (!userData) return;
+    if (!me) return;
     startLoading();
     try {
       await deleteGroupQuitId(params.id);
@@ -90,7 +96,7 @@ const ViewGroup = () => {
         onRefresh,
       }}
       trailingIcon={
-        isLoaded && userData.role !== 2
+        isLoaded && me.role !== 2
           ? {
               name: "DoorOpen",
               onPress: () => {
@@ -103,9 +109,9 @@ const ViewGroup = () => {
         data={
           isLoaded
             ? {
-                group: groupData,
+                group,
                 members,
-                user: userData,
+                me,
               }
             : undefined
         }>
@@ -183,7 +189,7 @@ const ViewGroup = () => {
               </Item>
               <Item
                 icon="EnvelopeSimpleOpen"
-                disabled={data.user.role < data.group.invite_policy}
+                disabled={data.me.role < data.group.invite_policy}
                 onPress={() => {
                   navigation.navigate("PagesStack", {
                     screen: "InviteGroup",
@@ -196,7 +202,7 @@ const ViewGroup = () => {
               </Item>
               <Item
                 icon="PencilSimpleLine"
-                disabled={data.user.role !== 2}
+                disabled={data.me.role !== 2}
                 onPress={() => {
                   navigation.navigate("PagesStack", {
                     screen: "EditGroup",

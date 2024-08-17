@@ -33,7 +33,7 @@ const CategorySubject = () => {
   const [refreshing, setRefreshing] = React.useState(false);
   React.useEffect(() => {
     if (isRefetching) return;
-    setRefreshing(isRefetching);
+    setRefreshing(false);
   }, [isRefetching]);
   const onRefresh = async () => {
     setRefreshing(true);

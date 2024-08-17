@@ -47,12 +47,18 @@ const ListUser = () => {
 
   const group = React.useMemo(() => {
     if (!groups) return undefined;
-    return groups.find((group) => group.id === params.id);
-  }, [groups, params.id]);
+
+    const data = groups.find((group) => group.id === params.id);
+    if (data) return data;
+    navigation.goBack();
+  }, [groups, navigation, params.id]);
   const me = React.useMemo(() => {
     if (!members || !profile) return undefined;
-    return members.find((member) => member.user_id === profile?.user_id);
-  }, [members, profile]);
+
+    const data = members.find((member) => member.user_id === profile?.user_id);
+    if (data) return data;
+    navigation.goBack();
+  }, [members, navigation, profile]);
 
   const [refreshing, setRefreshing] = React.useState(false);
   React.useEffect(() => {
