@@ -17,13 +17,19 @@ import { deleteTimer, putTimer, useGetTimer } from "api/endpoints/timer/timer";
 import { useLoading } from "contexts/loading";
 import { useTheme } from "contexts/theme";
 
-import { HStack, PhosphorIcon, Text, VStack } from "components/common";
+import {
+  HStack,
+  PhosphorIcon,
+  Text,
+  TimerItem,
+  VStack,
+} from "components/common";
 import { Container, Wrapper } from "components/layout";
 
 import { Confirm, TimerContent, TimerSubject } from "screens/sheets";
 
 const Timer = () => {
-  const { styles, colors } = useTheme();
+  const { colors } = useTheme();
   const { startLoading, endLoading } = useLoading();
 
   const confirmSheetRef = React.useRef<BottomSheetModal>(null);
@@ -123,24 +129,11 @@ const Timer = () => {
         }>
         {(data) => (
           <VStack justify="between" fill>
-            <VStack
-              gap={200}
-              style={[
-                styles.radius.all[600],
-                styles.padding.vertical[500],
-                styles.padding.horizontal[600],
-                styles.$border(2, data.subject.color),
-              ]}>
-              <HStack align="center" gap={200}>
-                <PhosphorIcon name="GraduationCap" color={data.subject.color} />
-                <Text type="title3" weight="semiBold" color={colors.gray[800]}>
-                  {data.subject.name} 공부 중
-                </Text>
-              </HStack>
-              <Text type="body" weight="medium" color={colors.gray[500]}>
-                {data.timer.content}
-              </Text>
-            </VStack>
+            <TimerItem
+              title={`${data.subject.name} 공부 중`}
+              description={data.timer.content}
+              color={data.subject.color}
+            />
             <VStack align="center" gap={300}>
               <Text type="body" weight="medium" color={colors.gray[400]}>
                 현재 공부 시간

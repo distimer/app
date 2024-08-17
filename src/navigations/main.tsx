@@ -34,6 +34,7 @@ const MainStack = () => {
 
   const { status } = useGetTimer({
     query: {
+      retry: false,
       refetchInterval: 5000,
     },
   });
