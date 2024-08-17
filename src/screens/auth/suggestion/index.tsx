@@ -268,7 +268,6 @@ const Suggestion = () => {
       mixed[category.name].push(target);
     }
 
-    console.log(Object.keys(mixed));
     startLoading();
     try {
       await putUser({
@@ -281,7 +280,6 @@ const Suggestion = () => {
       });
       const subjects = [];
       for (const category of categories) {
-        console.log(category.name, category.id);
         for (const subject of mixed[category.name]) {
           subjects.push({
             category_id: category.id,

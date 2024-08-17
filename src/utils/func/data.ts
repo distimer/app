@@ -16,7 +16,6 @@ export const compareArray = (a: string[], b: string[]) => {
   else {
     for (let i = 0; i < a.length; i++) {
       if (a[i] !== b[i]) {
-        console.log(a[i], b[i]);
         return false;
       }
     }

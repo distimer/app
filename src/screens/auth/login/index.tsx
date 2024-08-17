@@ -25,8 +25,6 @@ const Login: React.FC = () => {
   const { startLoading, endLoading } = useLoading();
 
   const loginProcess = async (accessToken: string, refreshToken: string) => {
-    console.log("check token");
-    console.log(accessToken);
     await setTokens(accessToken, refreshToken);
   };
 

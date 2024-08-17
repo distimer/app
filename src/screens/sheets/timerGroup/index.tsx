@@ -41,7 +41,6 @@ const TimerGroup: React.FC<TimerGroupProps> = ({
 
   React.useEffect(() => {
     setGroups(initial);
-    console.log(initial);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(initial)]);
 

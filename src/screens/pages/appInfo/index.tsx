@@ -1,10 +1,11 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import { getVersion } from "react-native-device-info";
 
 import { useMainNavigation } from "navigations";
 
 import { useTheme } from "contexts/theme";
+
+import { getAppVersion } from "utils/func/other";
 
 import { HStack, Icon, Text, VStack } from "components/common";
 import { Container } from "components/layout";
@@ -13,6 +14,16 @@ const AppInfo = () => {
   const navigation = useMainNavigation();
 
   const { styles, colors } = useTheme();
+
+  const [version, setVersion] = React.useState<string>("-");
+  React.useEffect(() => {
+    const getVersion = async () => {
+      return await getAppVersion();
+    };
+    getVersion()
+      .then((res) => setVersion(res))
+      .catch(console.error);
+  }, []);
 
   return (
     <Container title="앱 정보" backable>
@@ -32,7 +43,7 @@ const AppInfo = () => {
               DISTIMER
             </Text>
             <Text type="body" weight="medium" color={colors.gray[400]}>
-              버전 {getVersion()}
+              버전 {version}
             </Text>
           </VStack>
         </VStack>

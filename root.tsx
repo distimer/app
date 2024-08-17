@@ -1,5 +1,6 @@
 import React from "react";
 import { LogBox } from "react-native";
+import codePush from "react-native-code-push";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -26,7 +27,7 @@ const queryClient = new QueryClient({
   defaultOptions: {},
 });
 
-const Root = () => {
+let Root = () => {
   GoogleSignin.configure({
     webClientId: ENV.googleClientId,
     offlineAccess: true,
@@ -49,4 +50,8 @@ const Root = () => {
   );
 };
 
+Root = codePush({
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
+  installMode: codePush.InstallMode.IMMEDIATE,
+})(Root);
 export { Root };

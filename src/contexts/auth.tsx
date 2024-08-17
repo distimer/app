@@ -85,8 +85,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    loadTokens();
+    loadTokens().catch(console.error);
   }, [getAccessToken, getRefreshToken, setTokens]);
 
   const resetTokens = React.useCallback(async () => {
@@ -266,8 +265,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     if (accessToken) {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      updateUserInfo();
+      updateUserInfo().catch(console.error);
     }
   }, [accessToken]);
 

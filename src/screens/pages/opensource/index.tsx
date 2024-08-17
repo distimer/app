@@ -11,7 +11,6 @@ import { Container } from "components/layout";
 
 const Opensource = () => {
   const { styles, colors } = useTheme();
-  console.log(JSON.stringify(licenses[0], null, 2));
 
   return (
     <Container title="오픈소스 라이선스" backable scrollable>

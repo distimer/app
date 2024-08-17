@@ -79,9 +79,6 @@ const Statistics = () => {
     return target;
   }, [type, targetDate]);
 
-  console.log("startDate", compareStartDate);
-  console.log("endDate", compareEndDate);
-
   return params === undefined ? (
     <MyStatistics
       type={type}

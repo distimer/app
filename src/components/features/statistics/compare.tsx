@@ -194,9 +194,6 @@ const Compare: React.FC<CompareProps> = ({ type, targetDate, data }) => {
       .reduce((acc, item) => acc + item.sum, 0);
   }, [pastData, pastSelectedDates]);
 
-  console.log(nowSum, pastSum);
-  console.log(Math.abs(nowSum - pastSum));
-
   const maxSum = React.useMemo(() => {
     const nowMax = Math.max(...nowData.map((item) => item.sum));
     const pastMax = Math.max(...pastData.map((item) => item.sum));

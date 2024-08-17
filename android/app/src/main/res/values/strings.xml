@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">디스타이머</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">fmyqw26uIAcF9mSj7xcL0dWxaaFB4ksvOXqog</string>  
+    <string moduleConfig="true" name="CodePushServerUrl">https://codepush.2w.vc/</string>
 </resources>
