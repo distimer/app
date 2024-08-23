@@ -28,13 +28,21 @@
 		FA481A712C78469C0086A209 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA481A702C78469C0086A209 /* NotificationService.swift */; };
 		FA481A752C78469C0086A209 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA481A6E2C78469C0086A209 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */; };
-		FAD61EDC2C784BBB008F014B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDB2C784BBB008F014B /* WidgetKit.framework */; };
-		FAD61EDE2C784BBB008F014B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDD2C784BBB008F014B /* SwiftUI.framework */; };
-		FAD61EE12C784BBB008F014B /* OneSignalWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD61EE02C784BBB008F014B /* OneSignalWidgetBundle.swift */; };
-		FAD61EE32C784BBB008F014B /* OneSignalWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD61EE22C784BBB008F014B /* OneSignalWidgetLiveActivity.swift */; };
-		FAD61EE72C784BBB008F014B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD61EE62C784BBB008F014B /* AppIntent.swift */; };
-		FAD61EE92C784BBC008F014B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD61EE82C784BBC008F014B /* Assets.xcassets */; };
-		FAD61EED2C784BBC008F014B /* OneSignalWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FAD61EDA2C784BBB008F014B /* OneSignalWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FAEC18E92C78602E002AE096 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDB2C784BBB008F014B /* WidgetKit.framework */; };
+		FAEC18EA2C78602E002AE096 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDD2C784BBB008F014B /* SwiftUI.framework */; };
+		FAEC18ED2C78602E002AE096 /* LiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */; };
+		FAEC18EF2C78602E002AE096 /* LiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18EE2C78602E002AE096 /* LiveActivity.swift */; };
+		FAEC18F32C78602F002AE096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEC18F22C78602F002AE096 /* Assets.xcassets */; };
+		FAEC18F72C78602F002AE096 /* LiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FAEC19002C78614E002AE096 /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */; };
+		FAEC19032C7864BF002AE096 /* LiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC19012C7864B9002AE096 /* LiveActivityView.swift */; };
+		FAEC19042C786AC8002AE096 /* WantedSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */; };
+		FAEC19052C786AC8002AE096 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
+		FAEC19062C786AC8002AE096 /* WantedSans-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */; };
+		FAEC19072C786AC8002AE096 /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
+		FAEC19082C786AC8002AE096 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
+		FAEC19092C786AC8002AE096 /* WantedSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */; };
+		FAEC190A2C786AC8002AE096 /* WantedSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +60,12 @@
 			remoteGlobalIDString = FA481A6D2C78469C0086A209;
 			remoteInfo = OneSignalNotificationServiceExtension;
 		};
-		FAD61EEB2C784BBC008F014B /* PBXContainerItemProxy */ = {
+		FAEC18F52C78602F002AE096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FAD61ED92C784BBB008F014B;
-			remoteInfo = OneSignalWidgetExtension;
+			remoteGlobalIDString = FAEC18E72C78602E002AE096;
+			remoteInfo = LiveActivityExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,7 +77,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				FA481A752C78469C0086A209 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
-				FAD61EED2C784BBC008F014B /* OneSignalWidgetExtension.appex in Embed Foundation Extensions */,
+				FAEC18F72C78602F002AE096 /* LiveActivityExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,14 +122,17 @@
 		FA481A7A2C7846BA0086A209 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = distimer.entitlements; path = distimer/distimer.entitlements; sourceTree = "<group>"; };
 		FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FAD61EDA2C784BBB008F014B /* OneSignalWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD61EDB2C784BBB008F014B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		FAD61EDD2C784BBB008F014B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		FAD61EE02C784BBB008F014B /* OneSignalWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalWidgetBundle.swift; sourceTree = "<group>"; };
-		FAD61EE22C784BBB008F014B /* OneSignalWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		FAD61EE62C784BBB008F014B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		FAD61EE82C784BBC008F014B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAD61EEA2C784BBC008F014B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityBundle.swift; sourceTree = "<group>"; };
+		FAEC18EE2C78602E002AE096 /* LiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivity.swift; sourceTree = "<group>"; };
+		FAEC18F22C78602F002AE096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAEC18F42C78602F002AE096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityAttributes.swift; sourceTree = "<group>"; };
+		FAEC18FE2C7860EC002AE096 /* distimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "distimer-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAEC19012C7864B9002AE096 /* LiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityView.swift; sourceTree = "<group>"; };
+		FAEC190B2C78735E002AE096 /* LiveActivityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveActivityExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,12 +160,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAD61ED72C784BBB008F014B /* Frameworks */ = {
+		FAEC18E52C78602E002AE096 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD61EDE2C784BBB008F014B /* SwiftUI.framework in Frameworks */,
-				FAD61EDC2C784BBB008F014B /* WidgetKit.framework in Frameworks */,
+				FAEC18EA2C78602E002AE096 /* SwiftUI.framework in Frameworks */,
+				FAEC18E92C78602E002AE096 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,11 +231,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FAEC190B2C78735E002AE096 /* LiveActivityExtension.entitlements */,
 				13B07FAE1A68108700A75B9A /* distimer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* distimerTests */,
+				FAEC18EB2C78602E002AE096 /* LiveActivity */,
 				FA481A6F2C78469C0086A209 /* OneSignalNotificationServiceExtension */,
-				FAD61EDF2C784BBB008F014B /* OneSignalWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -241,7 +253,7 @@
 				13B07F961A680F5B00A75B9A /* distimer.app */,
 				00E356EE1AD99517003FC87E /* distimerTests.xctest */,
 				FA481A6E2C78469C0086A209 /* OneSignalNotificationServiceExtension.appex */,
-				FAD61EDA2C784BBB008F014B /* OneSignalWidgetExtension.appex */,
+				FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,16 +295,18 @@
 			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
-		FAD61EDF2C784BBB008F014B /* OneSignalWidget */ = {
+		FAEC18EB2C78602E002AE096 /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
-				FAD61EE02C784BBB008F014B /* OneSignalWidgetBundle.swift */,
-				FAD61EE22C784BBB008F014B /* OneSignalWidgetLiveActivity.swift */,
-				FAD61EE62C784BBB008F014B /* AppIntent.swift */,
-				FAD61EE82C784BBC008F014B /* Assets.xcassets */,
-				FAD61EEA2C784BBC008F014B /* Info.plist */,
+				FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */,
+				FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */,
+				FAEC18EE2C78602E002AE096 /* LiveActivity.swift */,
+				FAEC19012C7864B9002AE096 /* LiveActivityView.swift */,
+				FAEC18FE2C7860EC002AE096 /* distimer-Bridging-Header.h */,
+				FAEC18F22C78602F002AE096 /* Assets.xcassets */,
+				FAEC18F42C78602F002AE096 /* Info.plist */,
 			);
-			path = OneSignalWidget;
+			path = LiveActivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +350,7 @@
 			);
 			dependencies = (
 				FA481A742C78469C0086A209 /* PBXTargetDependency */,
-				FAD61EEC2C784BBC008F014B /* PBXTargetDependency */,
+				FAEC18F62C78602F002AE096 /* PBXTargetDependency */,
 			);
 			name = distimer;
 			productName = distimer;
@@ -361,21 +375,21 @@
 			productReference = FA481A6E2C78469C0086A209 /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		FAD61ED92C784BBB008F014B /* OneSignalWidgetExtension */ = {
+		FAEC18E72C78602E002AE096 /* LiveActivityExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAD61EF02C784BBC008F014B /* Build configuration list for PBXNativeTarget "OneSignalWidgetExtension" */;
+			buildConfigurationList = FAEC18F82C78602F002AE096 /* Build configuration list for PBXNativeTarget "LiveActivityExtension" */;
 			buildPhases = (
-				FAD61ED62C784BBB008F014B /* Sources */,
-				FAD61ED72C784BBB008F014B /* Frameworks */,
-				FAD61ED82C784BBB008F014B /* Resources */,
+				FAEC18E42C78602E002AE096 /* Sources */,
+				FAEC18E52C78602E002AE096 /* Frameworks */,
+				FAEC18E62C78602E002AE096 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = OneSignalWidgetExtension;
-			productName = OneSignalWidgetExtension;
-			productReference = FAD61EDA2C784BBB008F014B /* OneSignalWidgetExtension.appex */;
+			name = LiveActivityExtension;
+			productName = LiveActivityExtension;
+			productReference = FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -392,12 +406,12 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1540;
 					};
 					FA481A6D2C78469C0086A209 = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					FAD61ED92C784BBB008F014B = {
+					FAEC18E72C78602E002AE096 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
@@ -417,7 +431,7 @@
 				13B07F861A680F5B00A75B9A /* distimer */,
 				00E356ED1AD99517003FC87E /* distimerTests */,
 				FA481A6D2C78469C0086A209 /* OneSignalNotificationServiceExtension */,
-				FAD61ED92C784BBB008F014B /* OneSignalWidgetExtension */,
+				FAEC18E72C78602E002AE096 /* LiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -457,11 +471,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAD61ED82C784BBB008F014B /* Resources */ = {
+		FAEC18E62C78602E002AE096 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD61EE92C784BBC008F014B /* Assets.xcassets in Resources */,
+				FAEC18F32C78602F002AE096 /* Assets.xcassets in Resources */,
+				FAEC19042C786AC8002AE096 /* WantedSans-ExtraBold.ttf in Resources */,
+				FAEC19052C786AC8002AE096 /* WantedSans-Regular.ttf in Resources */,
+				FAEC19062C786AC8002AE096 /* WantedSans-ExtraBlack.ttf in Resources */,
+				FAEC19072C786AC8002AE096 /* WantedSans-Medium.ttf in Resources */,
+				FAEC19082C786AC8002AE096 /* WantedSans-Black.ttf in Resources */,
+				FAEC19092C786AC8002AE096 /* WantedSans-SemiBold.ttf in Resources */,
+				FAEC190A2C786AC8002AE096 /* WantedSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,13 +667,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAD61ED62C784BBB008F014B /* Sources */ = {
+		FAEC18E42C78602E002AE096 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD61EE12C784BBB008F014B /* OneSignalWidgetBundle.swift in Sources */,
-				FAD61EE72C784BBB008F014B /* AppIntent.swift in Sources */,
-				FAD61EE32C784BBB008F014B /* OneSignalWidgetLiveActivity.swift in Sources */,
+				FAEC18ED2C78602E002AE096 /* LiveActivityBundle.swift in Sources */,
+				FAEC19032C7864BF002AE096 /* LiveActivityView.swift in Sources */,
+				FAEC18EF2C78602E002AE096 /* LiveActivity.swift in Sources */,
+				FAEC19002C78614E002AE096 /* LiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,10 +691,10 @@
 			target = FA481A6D2C78469C0086A209 /* OneSignalNotificationServiceExtension */;
 			targetProxy = FA481A732C78469C0086A209 /* PBXContainerItemProxy */;
 		};
-		FAD61EEC2C784BBC008F014B /* PBXTargetDependency */ = {
+		FAEC18F62C78602F002AE096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAD61ED92C784BBB008F014B /* OneSignalWidgetExtension */;
-			targetProxy = FAD61EEB2C784BBC008F014B /* PBXContainerItemProxy */;
+			target = FAEC18E72C78602E002AE096 /* LiveActivityExtension */;
+			targetProxy = FAEC18F52C78602F002AE096 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -754,6 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app;
 				PRODUCT_NAME = distimer;
+				SWIFT_OBJC_BRIDGING_HEADER = "LiveActivity/distimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -785,6 +808,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app;
 				PRODUCT_NAME = distimer;
+				SWIFT_OBJC_BRIDGING_HEADER = "LiveActivity/distimer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -863,7 +887,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -936,7 +963,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1029,7 +1059,7 @@
 			};
 			name = Release;
 		};
-		FAD61EEE2C784BBC008F014B /* Debug */ = {
+		FAEC18F92C78602F002AE096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1041,6 +1071,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LiveActivityExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1048,8 +1079,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneSignalWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = OneSignalWidget;
+				INFOPLIST_FILE = LiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1061,7 +1092,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.OneSignalWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.LiveActivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1072,7 +1103,7 @@
 			};
 			name = Debug;
 		};
-		FAD61EEF2C784BBC008F014B /* Release */ = {
+		FAEC18FA2C78602F002AE096 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1084,6 +1115,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LiveActivityExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1092,8 +1124,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneSignalWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = OneSignalWidget;
+				INFOPLIST_FILE = LiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1104,7 +1136,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.OneSignalWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.LiveActivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1153,11 +1185,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAD61EF02C784BBC008F014B /* Build configuration list for PBXNativeTarget "OneSignalWidgetExtension" */ = {
+		FAEC18F82C78602F002AE096 /* Build configuration list for PBXNativeTarget "LiveActivityExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAD61EEE2C784BBC008F014B /* Debug */,
-				FAD61EEF2C784BBC008F014B /* Release */,
+				FAEC18F92C78602F002AE096 /* Debug */,
+				FAEC18FA2C78602F002AE096 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
