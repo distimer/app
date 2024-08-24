@@ -9,10 +9,10 @@ import Foundation
 import ActivityKit
 
 struct LiveActivityAttributes: ActivityAttributes {
-  public struct ContentState: Codable, Hashable {
-    var startedAt: Int
-    var subject: String
-    var color: String
-    var content: String
-  }
+    public struct ContentState: Codable, Hashable {
+        var startedAt: Int
+        var subject: String
+        var color: String
+        var content: String
+    }
 }

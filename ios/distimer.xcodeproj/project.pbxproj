@@ -21,10 +21,14 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		871147A6F270498AB1C3EAF7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */; };
 		9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */; };
+		9C4509C99E261F5348779B68 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CE01318628A2DF5E1F0BC5 /* libPods-OneSignalNotificationServiceExtension.a */; };
 		AB144C11BD4A41B3959FBE25 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AD02C0BB0A416FB4064BAE /* Colors.xcassets */; };
 		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
 		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
+		FA35820F2C79874D00A49A67 /* RCTNotificationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35820E2C79868400A49A67 /* RCTNotificationModule.m */; };
 		FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */; };
+		FA8B937C2C7982C9006F9F42 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B937B2C7982C9006F9F42 /* NotificationService.swift */; };
+		FA8B93802C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FAEC18E92C78602E002AE096 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDB2C784BBB008F014B /* WidgetKit.framework */; };
 		FAEC18EA2C78602E002AE096 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD61EDD2C784BBB008F014B /* SwiftUI.framework */; };
 		FAEC18ED2C78602E002AE096 /* LiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */; };
@@ -50,6 +54,13 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = distimer;
 		};
+		FA8B937E2C7982C9006F9F42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA8B93782C7982C9006F9F42;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 		FAEC18F52C78602F002AE096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -66,6 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				FA8B93802C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
 				FAEC18F72C78602F002AE096 /* LiveActivityExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -87,7 +99,9 @@
 		194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBold.ttf"; path = "../assets/fonts/WantedSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-distimer-distimerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer-distimerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD7C7CC9D65E0EE05DC41AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = distimer/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1E4F713F41D19ECDB092DD86 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-distimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer.debug.xcconfig"; path = "Target Support Files/Pods-distimer/Pods-distimer.debug.xcconfig"; sourceTree = "<group>"; };
+		42CE01318628A2DF5E1F0BC5 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer.release.xcconfig"; path = "Target Support Files/Pods-distimer/Pods-distimer.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.debug.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-distimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,12 +112,19 @@
 		966D172683AC434A8798983E /* WantedSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Regular.ttf"; path = "../assets/fonts/WantedSans-Regular.ttf"; sourceTree = "<group>"; };
 		A02D7A2119524B399FB9CE28 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = distimer/BootSplash.storyboard; sourceTree = "<group>"; };
 		AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Medium.ttf"; path = "../assets/fonts/WantedSans-Medium.ttf"; sourceTree = "<group>"; };
+		AD529192FBCD088FC4C0D247 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBlack.ttf"; path = "../assets/fonts/WantedSans-ExtraBlack.ttf"; sourceTree = "<group>"; };
 		B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-SemiBold.ttf"; path = "../assets/fonts/WantedSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Bold.ttf"; path = "../assets/fonts/WantedSans-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FA35820D2C7984FA00A49A67 /* RCTNotificationModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNotificationModule.h; sourceTree = "<group>"; };
+		FA35820E2C79868400A49A67 /* RCTNotificationModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTNotificationModule.m; sourceTree = "<group>"; };
 		FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = distimer.entitlements; path = distimer/distimer.entitlements; sourceTree = "<group>"; };
 		FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8B937B2C7982C9006F9F42 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FA8B937D2C7982C9006F9F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8B93842C798335006F9F42 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		FAD61EDB2C784BBB008F014B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		FAD61EDD2C784BBB008F014B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +152,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-distimer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8B93762C7982C9006F9F42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C4509C99E261F5348779B68 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +195,7 @@
 		13B07FAE1A68108700A75B9A /* distimer */ = {
 			isa = PBXGroup;
 			children = (
+				FA3582112C79879300A49A67 /* NativeModules */,
 				FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -190,6 +220,7 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-distimer-distimerTests.a */,
 				FAD61EDB2C784BBB008F014B /* WidgetKit.framework */,
 				FAD61EDD2C784BBB008F014B /* SwiftUI.framework */,
+				42CE01318628A2DF5E1F0BC5 /* libPods-OneSignalNotificationServiceExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +240,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* distimerTests */,
 				FAEC18EB2C78602E002AE096 /* LiveActivity */,
+				FA8B937A2C7982C9006F9F42 /* OneSignalNotificationServiceExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -225,6 +257,7 @@
 				13B07F961A680F5B00A75B9A /* distimer.app */,
 				00E356EE1AD99517003FC87E /* distimerTests.xctest */,
 				FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */,
+				FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,17 +283,46 @@
 				5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */,
+				AD529192FBCD088FC4C0D247 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				1E4F713F41D19ECDB092DD86 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA3582112C79879300A49A67 /* NativeModules */ = {
+			isa = PBXGroup;
+			children = (
+				FA3582122C7987A000A49A67 /* NotificationModule */,
+			);
+			name = NativeModules;
+			sourceTree = "<group>";
+		};
+		FA3582122C7987A000A49A67 /* NotificationModule */ = {
+			isa = PBXGroup;
+			children = (
+				FA35820E2C79868400A49A67 /* RCTNotificationModule.m */,
+				FA35820D2C7984FA00A49A67 /* RCTNotificationModule.h */,
+			);
+			name = NotificationModule;
+			sourceTree = "<group>";
+		};
+		FA8B937A2C7982C9006F9F42 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				FA8B93842C798335006F9F42 /* OneSignalNotificationServiceExtension.entitlements */,
+				FA8B937B2C7982C9006F9F42 /* NotificationService.swift */,
+				FA8B937D2C7982C9006F9F42 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		FAEC18EB2C78602E002AE096 /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
-				FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */,
 				FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */,
-				FAEC18EE2C78602E002AE096 /* LiveActivity.swift */,
+				FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */,
 				FAEC19012C7864B9002AE096 /* LiveActivityView.swift */,
+				FAEC18EE2C78602E002AE096 /* LiveActivity.swift */,
 				FAEC18FE2C7860EC002AE096 /* distimer-Bridging-Header.h */,
 				FAEC18F22C78602F002AE096 /* Assets.xcassets */,
 				FAEC18F42C78602F002AE096 /* Info.plist */,
@@ -309,11 +371,30 @@
 			);
 			dependencies = (
 				FAEC18F62C78602F002AE096 /* PBXTargetDependency */,
+				FA8B937F2C7982C9006F9F42 /* PBXTargetDependency */,
 			);
 			name = distimer;
 			productName = distimer;
 			productReference = 13B07F961A680F5B00A75B9A /* distimer.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FA8B93782C7982C9006F9F42 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8B93832C7982C9006F9F42 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				BD9992C734A1ADA92BDD746E /* [CP] Check Pods Manifest.lock */,
+				FA8B93752C7982C9006F9F42 /* Sources */,
+				FA8B93762C7982C9006F9F42 /* Frameworks */,
+				FA8B93772C7982C9006F9F42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		FAEC18E72C78602E002AE096 /* LiveActivityExtension */ = {
 			isa = PBXNativeTarget;
@@ -338,7 +419,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -347,6 +428,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1540;
+					};
+					FA8B93782C7982C9006F9F42 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 					FAEC18E72C78602E002AE096 = {
 						CreatedOnToolsVersion = 15.4;
@@ -368,6 +452,7 @@
 				13B07F861A680F5B00A75B9A /* distimer */,
 				00E356ED1AD99517003FC87E /* distimerTests */,
 				FAEC18E72C78602E002AE096 /* LiveActivityExtension */,
+				FA8B93782C7982C9006F9F42 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +482,13 @@
 				9AFC409C717242EAB214922C /* WantedSans-SemiBold.ttf in Resources */,
 				871147A6F270498AB1C3EAF7 /* BootSplash.storyboard in Resources */,
 				AB144C11BD4A41B3959FBE25 /* Colors.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8B93772C7982C9006F9F42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +559,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-distimer-distimerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD9992C734A1ADA92BDD746E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -563,6 +677,15 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				FA35820F2C79874D00A49A67 /* RCTNotificationModule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8B93752C7982C9006F9F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8B937C2C7982C9006F9F42 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +708,11 @@
 			target = 13B07F861A680F5B00A75B9A /* distimer */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
+		FA8B937F2C7982C9006F9F42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA8B93782C7982C9006F9F42 /* OneSignalNotificationServiceExtension */;
+			targetProxy = FA8B937E2C7982C9006F9F42 /* PBXContainerItemProxy */;
+		};
 		FAEC18F62C78602F002AE096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAEC18E72C78602E002AE096 /* LiveActivityExtension */;
@@ -603,7 +731,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = distimerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +755,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = distimerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -648,6 +776,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-distimer.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = distimer/distimer.entitlements;
@@ -657,6 +786,7 @@
 				INFOPLIST_FILE = distimer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디스타이머";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,9 +799,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app;
 				PRODUCT_NAME = distimer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "LiveActivity/distimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -680,6 +813,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-distimer.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = distimer/distimer.entitlements;
@@ -688,6 +822,7 @@
 				INFOPLIST_FILE = distimer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디스타이머";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,8 +835,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app;
 				PRODUCT_NAME = distimer;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "LiveActivity/distimer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -757,7 +895,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -831,7 +969,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -860,6 +998,91 @@
 			};
 			name = Release;
 		};
+		FA8B93812C7982C9006F9F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD529192FBCD088FC4C0D247 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA8B93822C7982C9006F9F42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4F713F41D19ECDB092DD86 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.distimer.app.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FAEC18F92C78602F002AE096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -883,7 +1106,7 @@
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -928,7 +1151,7 @@
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -973,6 +1196,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8B93832C7982C9006F9F42 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8B93812C7982C9006F9F42 /* Debug */,
+				FA8B93822C7982C9006F9F42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

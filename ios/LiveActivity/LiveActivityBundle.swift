@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct LiveActivityBundle: WidgetBundle {
-  var body: some Widget {
-    LiveActivity()
-  }
+    var body: some Widget {
+        LiveActivity()
+    }
 }
