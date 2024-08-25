@@ -119,6 +119,7 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation project(':react-native-code-push')
+    implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
