@@ -17,7 +17,4 @@ class MainActivity : ReactActivity() {
     RNBootSplash.init(this, R.style.BootTheme)
     super.onCreate(savedInstanceState)
   }
-  companion object{
-    const val  ACTION_STOP_FOREGROUND = "${BuildConfig.APPLICATION_ID}.stop"
-  }
 }

@@ -28,5 +28,7 @@
         <service
             android:name=".TimerNotificationService"
             android:foregroundServiceType="specialUse" />
+        <meta-data android:name="com.onesignal.NotificationServiceExtension"
+            android:value="com.distimer.app.NotificationServiceExtension" />
     </application>
 </manifest>

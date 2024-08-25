@@ -2,6 +2,7 @@ package com.distimer.app
 
 import android.app.*
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
@@ -16,33 +17,16 @@ class TimerNotificationService : Service() {
     private var isRunning = false
     private val channelId = "StopwatchServiceChannel"
     private var subject = ""
-    private var startAt= System.currentTimeMillis()
+    private var startAt = System.currentTimeMillis()
+    private var content = ""
+    private var color = "#000000"
 
     private var notificationManager: NotificationManager? = null
 
-    override fun onCreate() {
-        super.onCreate()
-        createNotificationChannel()
-        startForeground(1, createNotification(subject,"0초 공부중"))
-        isRunning = true
-        Thread {
-            while (isRunning) {
-                val now = System.currentTimeMillis()
-                val date = Date(now)
-                val diffMilliseconds = date.time - startAt
-                val notification = createNotification(subject,formatDuration(diffMilliseconds) + " 공부중")
-                notificationManager?.notify(1, notification)
-                try {
-                    Thread.sleep(1000)
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                }
-            }
-        }.start()
-    }
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         val extras: Bundle? = intent?.extras
         if (extras != null) {
             val rawSubject: String? = extras.getString("Subject")
@@ -53,32 +37,47 @@ class TimerNotificationService : Service() {
             if (rawStartAt != null) {
                 startAt = OffsetDateTime.parse(rawStartAt, DateTimeFormatter.ISO_OFFSET_DATE_TIME).toInstant().toEpochMilli()
             }
-        }
-        return START_STICKY
-    }
-
-
-    private fun createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val importance = NotificationManager.IMPORTANCE_HIGH // set importance
-            val channel = NotificationChannel(channelId, "공부 타이머 알림", importance).apply {
-                description = "공부 타이머"
-                lockscreenVisibility=Notification.VISIBILITY_PUBLIC
+            val rawContent: String? = extras.getString("Content")
+            if (rawContent != null) {
+                content = rawContent
             }
-            // Register the channel with the system
-            notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager?.createNotificationChannel(channel)
+            val rawColor: String? = extras.getString("Color")
+            if (rawColor != null) {
+                color = rawColor
+            }
         }
+        while (subject == "") {
+            continue
+        }
+        startForeground(1, createNotification("\"$subject\" 과목 공부중","0초 - "))
+        isRunning = true
+        Thread {
+            while (isRunning) {
+                val now = System.currentTimeMillis()
+                val date = Date(now)
+                val diffMilliseconds = date.time - startAt
+                val notification = createNotification("\"$subject\" 과목 공부중",formatDuration(diffMilliseconds) + " - " + content)
+                notificationManager?.notify(1, notification)
+                try {
+                    Thread.sleep(1000)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+        }.start()
+        return START_STICKY
     }
 
     private fun createNotification(title: String, content: String): Notification {
         val notify = NotificationCompat.Builder(this, channelId)
             .setContentTitle(title)
             .setContentText(content)
-            .setSmallIcon(R.drawable.bootsplash_logo) // TODO: Fix this Icon, it's temporal on
-            .setOngoing(true)
+            .setSmallIcon(R.drawable.graduation_cap)
+            .setColor(Color.parseColor(color))
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setOngoing(true) // <<---
+            .setPriority(NotificationCompat.PRIORITY_MAX) // <<--
+            .setOnlyAlertOnce(true)
             .build()
         return notify
     }

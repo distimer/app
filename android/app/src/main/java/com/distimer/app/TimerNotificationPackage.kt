@@ -9,8 +9,8 @@ import java.util.Collections
 
 class TimerNotificationPackage : ReactPackage {
 
-    override fun createNativeModules(reactContext: ReactApplicationContext): MutableList<TimerNotificationServiceModule> {
-        return mutableListOf(TimerNotificationServiceModule(reactContext))
+    override fun createNativeModules(reactContext: ReactApplicationContext): MutableList<OnesignalInitModule> {
+        return mutableListOf(OnesignalInitModule(reactContext))
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): MutableList<ViewManager<View, ReactShadowNode<*>>> {
