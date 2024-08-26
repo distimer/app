@@ -8,6 +8,8 @@
 import ActivityKit
 import WidgetKit
 import SwiftUI
+import OneSignalLiveActivities
+
 
 struct LiveActivity: Widget {
     var body: some WidgetConfiguration {
@@ -34,19 +36,23 @@ struct LiveActivity: Widget {
     }
 }
 
-extension LiveActivityAttributes.ContentState {
-    fileprivate static var test: LiveActivityAttributes.ContentState {
-        LiveActivityAttributes.ContentState(
-            startedAt: 1724394217,
-            subject: "미적분",
-            color: "ff0000",
-            content: "내용입니다"
-        )
-    }
-}
-
-#Preview("Notification", as: .content, using: LiveActivityAttributes()) {
-    LiveActivity()
-} contentStates: {
-    LiveActivityAttributes.ContentState.test
-}
+//extension LiveActivityAttributes.ContentState {
+//    fileprivate static var test: LiveActivityAttributes.ContentState {
+//        LiveActivityAttributes.ContentState(
+//            startedAt: 1724394217,
+//            subject: "미적분",
+//            color: "ff0000",
+//            content: "내용입니다"
+//        )
+//    }
+//}
+//
+//#Preview(
+//  "Notification",
+//  as: .content,
+//  using: LiveActivityAttributes(onesignal: OneSignalLiveActivityAttributeData.create(activityId: "test"))
+//) {
+//    LiveActivity()
+//} contentStates: {
+//    LiveActivityAttributes.ContentState.test
+//}

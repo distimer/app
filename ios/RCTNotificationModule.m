@@ -11,6 +11,6 @@
 @implementation RCTNotificationModule
 
 // To export a module named RCTCalendarModule
-RCT_EXPORT_MODULE();
+RCT_EXPORT_MODULE(NotificationModule);
 
 @end

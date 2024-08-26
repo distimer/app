@@ -14,6 +14,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		20865BE1B69CE0E2E29D7B11 /* libPods-LiveActivityExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B4EC2E713A38EDD1558E25 /* libPods-LiveActivityExtension.a */; };
 		5B736EFCBCC64C84E8C71A1A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7C7CC9D65E0EE05DC41AD /* PrivacyInfo.xcprivacy */; };
 		655E1A6CDA6C4775BA36109E /* WantedSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */; };
 		6675C8383B954EBBBA4EEAF3 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
@@ -26,6 +27,9 @@
 		ADE75F6840354FEF9BE85514 /* WantedSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */; };
 		F8415F412DC84FF2B2817AAC /* WantedSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2C8094D6864F50999F5B90 /* WantedSans-Medium.ttf */; };
 		FA35820F2C79874D00A49A67 /* RCTNotificationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA35820E2C79868400A49A67 /* RCTNotificationModule.m */; };
+		FA621B7B2C7C95E40014F62C /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */; };
+		FA621B7E2C7CA37F0014F62C /* RCTNotificationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA621B7D2C7CA37F0014F62C /* RCTNotificationModule.swift */; };
+		FA621B7F2C7CA52B0014F62C /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */; };
 		FA6C28E42C57395C00A5A0D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */; };
 		FA8B937C2C7982C9006F9F42 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B937B2C7982C9006F9F42 /* NotificationService.swift */; };
 		FA8B93802C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -35,7 +39,6 @@
 		FAEC18EF2C78602E002AE096 /* LiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18EE2C78602E002AE096 /* LiveActivity.swift */; };
 		FAEC18F32C78602F002AE096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEC18F22C78602F002AE096 /* Assets.xcassets */; };
 		FAEC18F72C78602F002AE096 /* LiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FAEC18E82C78602E002AE096 /* LiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FAEC19002C78614E002AE096 /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */; };
 		FAEC19032C7864BF002AE096 /* LiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC19012C7864B9002AE096 /* LiveActivityView.swift */; };
 		FAEC19042C786AC8002AE096 /* WantedSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194CCEB5354340FC8FB36C62 /* WantedSans-ExtraBold.ttf */; };
 		FAEC19052C786AC8002AE096 /* WantedSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 966D172683AC434A8798983E /* WantedSans-Regular.ttf */; };
@@ -106,6 +109,7 @@
 		5B7EB9410499542E8C5724F5 /* Pods-distimer-distimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.debug.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-distimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-distimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AD02C0BB0A416FB4064BAE /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = distimer/Colors.xcassets; sourceTree = "<group>"; };
+		76B4EC2E713A38EDD1558E25 /* libPods-LiveActivityExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiveActivityExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = distimer/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8214E6CA53AB4F44B2C37839 /* WantedSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Black.ttf"; path = "../assets/fonts/WantedSans-Black.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-distimer-distimerTests.release.xcconfig"; path = "Target Support Files/Pods-distimer-distimerTests/Pods-distimer-distimerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,10 +119,12 @@
 		AD529192FBCD088FC4C0D247 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		B16F466026B44D8E99A3A2CA /* WantedSans-ExtraBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-ExtraBlack.ttf"; path = "../assets/fonts/WantedSans-ExtraBlack.ttf"; sourceTree = "<group>"; };
 		B61A7FC36E144D8C833619DF /* WantedSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-SemiBold.ttf"; path = "../assets/fonts/WantedSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		B6E8C9C05BBFD6EB60A7AFEA /* Pods-LiveActivityExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActivityExtension.release.xcconfig"; path = "Target Support Files/Pods-LiveActivityExtension/Pods-LiveActivityExtension.release.xcconfig"; sourceTree = "<group>"; };
 		D70EFF607AC24E57BB089A3B /* WantedSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "WantedSans-Bold.ttf"; path = "../assets/fonts/WantedSans-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA35820D2C7984FA00A49A67 /* RCTNotificationModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNotificationModule.h; sourceTree = "<group>"; };
 		FA35820E2C79868400A49A67 /* RCTNotificationModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTNotificationModule.m; sourceTree = "<group>"; };
+		FA621B7D2C7CA37F0014F62C /* RCTNotificationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCTNotificationModule.swift; sourceTree = "<group>"; };
 		FA6C28E22C5732B000A5A0D6 /* distimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = distimer.entitlements; path = distimer/distimer.entitlements; sourceTree = "<group>"; };
 		FA6C28E32C57395C00A5A0D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA8B93792C7982C9006F9F42 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +142,7 @@
 		FAEC18FE2C7860EC002AE096 /* distimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "distimer-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAEC19012C7864B9002AE096 /* LiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityView.swift; sourceTree = "<group>"; };
 		FAEC190B2C78735E002AE096 /* LiveActivityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveActivityExtension.entitlements; sourceTree = "<group>"; };
+		FFAEA1671CB15DFB741ED846 /* Pods-LiveActivityExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActivityExtension.debug.xcconfig"; path = "Target Support Files/Pods-LiveActivityExtension/Pods-LiveActivityExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +176,7 @@
 			files = (
 				FAEC18EA2C78602E002AE096 /* SwiftUI.framework in Frameworks */,
 				FAEC18E92C78602E002AE096 /* WidgetKit.framework in Frameworks */,
+				20865BE1B69CE0E2E29D7B11 /* libPods-LiveActivityExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +229,7 @@
 				FAD61EDB2C784BBB008F014B /* WidgetKit.framework */,
 				FAD61EDD2C784BBB008F014B /* SwiftUI.framework */,
 				42CE01318628A2DF5E1F0BC5 /* libPods-OneSignalNotificationServiceExtension.a */,
+				76B4EC2E713A38EDD1558E25 /* libPods-LiveActivityExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,6 +294,8 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-distimer-distimerTests.release.xcconfig */,
 				AD529192FBCD088FC4C0D247 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				1E4F713F41D19ECDB092DD86 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				FFAEA1671CB15DFB741ED846 /* Pods-LiveActivityExtension.debug.xcconfig */,
+				B6E8C9C05BBFD6EB60A7AFEA /* Pods-LiveActivityExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -302,6 +313,8 @@
 			children = (
 				FA35820E2C79868400A49A67 /* RCTNotificationModule.m */,
 				FA35820D2C7984FA00A49A67 /* RCTNotificationModule.h */,
+				FA621B7D2C7CA37F0014F62C /* RCTNotificationModule.swift */,
+				FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */,
 			);
 			name = NotificationModule;
 			sourceTree = "<group>";
@@ -319,7 +332,6 @@
 		FAEC18EB2C78602E002AE096 /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
-				FAEC18FC2C78609D002AE096 /* LiveActivityAttributes.swift */,
 				FAEC18EC2C78602E002AE096 /* LiveActivityBundle.swift */,
 				FAEC19012C7864B9002AE096 /* LiveActivityView.swift */,
 				FAEC18EE2C78602E002AE096 /* LiveActivity.swift */,
@@ -400,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAEC18F82C78602F002AE096 /* Build configuration list for PBXNativeTarget "LiveActivityExtension" */;
 			buildPhases = (
+				3B8279F297199BF25D011960 /* [CP] Check Pods Manifest.lock */,
 				FAEC18E42C78602E002AE096 /* Sources */,
 				FAEC18E52C78602E002AE096 /* Frameworks */,
 				FAEC18E62C78602E002AE096 /* Resources */,
@@ -543,6 +556,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-distimer/Pods-distimer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3B8279F297199BF25D011960 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LiveActivityExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,6 +713,8 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				FA35820F2C79874D00A49A67 /* RCTNotificationModule.m in Sources */,
+				FA621B7E2C7CA37F0014F62C /* RCTNotificationModule.swift in Sources */,
+				FA621B7B2C7C95E40014F62C /* LiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,7 +733,7 @@
 				FAEC18ED2C78602E002AE096 /* LiveActivityBundle.swift in Sources */,
 				FAEC19032C7864BF002AE096 /* LiveActivityView.swift in Sources */,
 				FAEC18EF2C78602E002AE096 /* LiveActivity.swift in Sources */,
-				FAEC19002C78614E002AE096 /* LiveActivityAttributes.swift in Sources */,
+				FA621B7F2C7CA52B0014F62C /* LiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,7 +954,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -990,7 +1030,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1085,6 +1128,7 @@
 		};
 		FAEC18F92C78602F002AE096 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFAEA1671CB15DFB741ED846 /* Pods-LiveActivityExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1129,6 +1173,7 @@
 		};
 		FAEC18FA2C78602F002AE096 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6E8C9C05BBFD6EB60A7AFEA /* Pods-LiveActivityExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
