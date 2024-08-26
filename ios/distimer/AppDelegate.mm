@@ -4,11 +4,6 @@
 #import <CodePush/CodePush.h>
 #import <React/RCTBundleURLProvider.h>
 
-#import <OneSignalExtension/OneSignalExtension.h>
-#import <OneSignalFramework/OneSignalFramework.h>
-//#import <OneSignalLiveActivities/OneSignalLiveActivities.h>
-//#import <OneSignalLiveActivities/OneSignalLiveActivities-Swift.h>
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,14 +12,6 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  
-  [OneSignal.Debug setLogLevel:ONE_S_LL_VERBOSE];
-  
-  [OneSignal initialize:@"YOUR_ONESIGNAL_APP_ID" withLaunchOptions:launchOptions];
-  
-  [OneSignal.Notifications requestPermission:^(BOOL accepted) {
-    NSLog(@"User accepted notifications: %d", accepted);
-  } fallbackToSettings:true];
   
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

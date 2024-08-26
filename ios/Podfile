@@ -15,6 +15,9 @@ if linkage != nil
 end
 
 target 'distimer' do
+  pod 'OneSignal/OneSignal', '>= 5.0.0', '< 6.0'
+  pod 'OneSignal/OneSignalInAppMessages', '>= 5.0.0', '< 6.0'
+
   config = use_native_modules!
 
   use_react_native!(
@@ -37,17 +40,4 @@ target 'distimer' do
       # :ccache_enabled => true
     )
   end
-
-  pod 'OneSignal/OneSignal', '>= 5.0.0', '< 6.0'
-  pod 'OneSignal/OneSignalInAppMessages', '>= 5.0.0', '< 6.0'
-end
-
-target 'OneSignalNotificationServiceExtension' do
-  pod 'OneSignal/OneSignal', '>= 5.0.0', '< 6.0'
-  pod 'OneSignal/OneSignalInAppMessages', '>= 5.0.0', '< 6.0'
-end
-
-target 'LiveActivityExtension' do
-  pod 'OneSignal/OneSignal', '>= 5.0.0', '< 6.0'
-  pod 'OneSignal/OneSignalInAppMessages', '>= 5.0.0', '< 6.0'
 end

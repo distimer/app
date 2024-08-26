@@ -7,7 +7,6 @@
 
 import Foundation
 import ActivityKit
-import OneSignalLiveActivities
 
 @objc(NotificationModule)
 class NotificationModule: NSObject {

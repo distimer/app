@@ -2,7 +2,6 @@ import React from "react";
 import { LogBox } from "react-native";
 import codePush from "react-native-code-push";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { LogLevel, OneSignal } from "react-native-onesignal";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
@@ -33,10 +32,6 @@ let Root = () => {
     webClientId: ENV.googleClientId,
     offlineAccess: true,
   });
-
-  OneSignal.Debug.setLogLevel(LogLevel.Verbose);
-  OneSignal.initialize(ENV.oneSignalAppId);
-  OneSignal.Notifications.requestPermission(true).catch(() => {});
 
   return (
     <QueryClientProvider client={queryClient}>
