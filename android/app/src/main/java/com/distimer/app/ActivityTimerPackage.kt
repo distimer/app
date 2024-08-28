@@ -7,10 +7,10 @@ import com.facebook.react.uimanager.ReactShadowNode
 import com.facebook.react.uimanager.ViewManager
 import java.util.Collections
 
-class TimerNotificationPackage : ReactPackage {
+class ActivityTimerPackage : ReactPackage {
 
-    override fun createNativeModules(reactContext: ReactApplicationContext): MutableList<OnesignalInitModule> {
-        return mutableListOf(OnesignalInitModule(reactContext))
+    override fun createNativeModules(reactContext: ReactApplicationContext): MutableList<ActivityTimer> {
+        return mutableListOf(ActivityTimer(reactContext))
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): MutableList<ViewManager<View, ReactShadowNode<*>>> {

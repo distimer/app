@@ -6,8 +6,9 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.provider.Settings
+import android.util.Log
+import android.widget.Toast
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -17,12 +18,9 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.microsoft.codepush.react.CodePush
-import com.onesignal.OneSignal
-import com.onesignal.debug.LogLevel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 const val ONESIGNAL_APP_ID = "1271ceba-9e5f-4ae0-a62c-385d750f3ef7"
 
@@ -35,7 +33,7 @@ class MainApplication : Application(), ReactApplication {
           val packages = PackageList(this).packages
 
           // Add My Wrapper Package
-          packages.add(TimerNotificationPackage())
+          packages.add(ActivityTimerPackage())
 
           return packages
         }
@@ -58,16 +56,14 @@ class MainApplication : Application(), ReactApplication {
   private fun createNotificationChannel() {
     // Create the NotificationChannel, but only on API 26+ because
     // the NotificationChannel class is new and not in the support library
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      val importance = NotificationManager.IMPORTANCE_HIGH // set importance
-      val channel = NotificationChannel("StopwatchServiceChannel", "공부 타이머 알림", importance).apply {
-        description = "공부 타이머"
-        lockscreenVisibility= Notification.VISIBILITY_PUBLIC
-      }
-      // Register the channel with the system
-      val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-      notificationManager.createNotificationChannel(channel)
+    val importance = NotificationManager.IMPORTANCE_HIGH // set importance
+    val channel = NotificationChannel("TimerServiceChannel", "공부 타이머 알림", importance).apply {
+      description = "공부 타이머"
+      lockscreenVisibility= Notification.VISIBILITY_PUBLIC
     }
+    // Register the channel with the system
+    val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+    notificationManager.createNotificationChannel(channel)
   }
 
   override fun onCreate() {
@@ -84,11 +80,18 @@ class MainApplication : Application(), ReactApplication {
     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) // 1줄 추가
     i.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
     context.startActivity(i)
+    FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+      if (!task.isSuccessful) {
+        Log.w("Firebase", "Fetching FCM registration token failed", task.exception)
+        return@OnCompleteListener
+      }
 
-    // Onesignal
-    OneSignal.Debug.logLevel = LogLevel.VERBOSE
+      // Get new FCM registration token
+      val token = task.result
 
-    // OneSignal Initialization
-    OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
+      // Log and toast
+      Log.d("Firebase", token)
+      Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+    })
   }
 }

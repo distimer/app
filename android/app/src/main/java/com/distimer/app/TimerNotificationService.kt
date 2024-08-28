@@ -23,7 +23,6 @@ class TimerNotificationService : Service() {
 
     private var notificationManager: NotificationManager? = null
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -57,7 +56,7 @@ class TimerNotificationService : Service() {
                 val date = Date(now)
                 val diffMilliseconds = date.time - startAt
                 val notification = createNotification("\"$subject\" 과목 공부중",formatDuration(diffMilliseconds) + " - " + content)
-                notificationManager?.notify(1, notification)
+                startForeground(1, notification)
                 try {
                     Thread.sleep(1000)
                 } catch (e: InterruptedException) {
@@ -75,8 +74,9 @@ class TimerNotificationService : Service() {
             .setSmallIcon(R.drawable.graduation_cap)
             .setColor(Color.parseColor(color))
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .setOngoing(true) // <<---
-            .setPriority(NotificationCompat.PRIORITY_MAX) // <<--
+            .setOngoing(true)
+            .setAutoCancel(false)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .setOnlyAlertOnce(true)
             .build()
         return notify
