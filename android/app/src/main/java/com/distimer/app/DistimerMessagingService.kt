@@ -2,7 +2,6 @@ package com.distimer.app
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -14,7 +13,7 @@ class DistimerMessagingService : FirebaseMessagingService() {
     override fun onNewToken(token: String) {
         Log.d(tag, "new Token: $token")
 
-        // 토큰 값을 따로 저장해둔다.
+        // save token to sharedPreferences
         val pref = this.getSharedPreferences("token", Context.MODE_PRIVATE)
         val editor = pref.edit()
         editor.putString("token", token).apply()
@@ -25,7 +24,7 @@ class DistimerMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(message: RemoteMessage) {
         Log.d(tag, "From: " + message.from)
-        val serviceIntent: Intent = Intent(
+        val serviceIntent = Intent(
             this,
             TimerNotificationService::class.java
         )

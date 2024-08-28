@@ -3,10 +3,8 @@ package com.distimer.app
 import android.app.*
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
-import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
